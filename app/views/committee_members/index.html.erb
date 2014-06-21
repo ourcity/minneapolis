@@ -1,0 +1,31 @@
+<h1>Listing committee_members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Committee</th>
+      <th>Council member</th>
+      <th>Chair</th>
+      <th>Vice chair</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @committee_members.each do |committee_member| %>
+      <tr>
+        <td><%= committee_member.committee %></td>
+        <td><%= committee_member.council_member %></td>
+        <td><%= committee_member.chair %></td>
+        <td><%= committee_member.vice_chair %></td>
+        <td><%= link_to 'Show', committee_member %></td>
+        <td><%= link_to 'Edit', edit_committee_member_path(committee_member) %></td>
+        <td><%= link_to 'Destroy', committee_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Committee member', new_committee_member_path %>

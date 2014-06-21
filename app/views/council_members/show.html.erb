@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ward:</strong>
+  <%= @council_member.ward %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @council_member.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @council_member.last_name %>
+</p>
+
+<p>
+  <strong>Committee member:</strong>
+  <%= @council_member.committee_member %>
+</p>
+
+<%= link_to 'Edit', edit_council_member_path(@council_member) %> |
+<%= link_to 'Back', council_members_path %>

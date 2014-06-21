@@ -1,0 +1,33 @@
+<%= form_for(@council_member) do |f| %>
+  <% if @council_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@council_member.errors.count, "error") %> prohibited this council_member from being saved:</h2>
+
+      <ul>
+      <% @council_member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ward %><br>
+    <%= f.text_field :ward %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :committee_member_id %><br>
+    <%= f.text_field :committee_member_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
