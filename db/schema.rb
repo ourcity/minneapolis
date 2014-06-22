@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621222202) do
+ActiveRecord::Schema.define(version: 20140622164459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140621222202) do
 
   create_table "agenda_items", force: true do |t|
     t.string   "title"
-    t.string   "description", limit: 1000
+    t.string   "description",       limit: 1000
     t.string   "report_url"
     t.string   "action"
     t.integer  "issue_id"
@@ -29,7 +29,14 @@ ActiveRecord::Schema.define(version: 20140621222202) do
     t.string   "source_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "process_step_id"
+    t.integer  "committee_id"
+    t.integer  "council_member_id"
   end
+
+  add_index "agenda_items", ["committee_id"], :name => "index_agenda_items_on_committee_id"
+  add_index "agenda_items", ["council_member_id"], :name => "index_agenda_items_on_council_member_id"
+  add_index "agenda_items", ["process_step_id"], :name => "index_agenda_items_on_process_step_id"
 
   create_table "committee_members", force: true do |t|
     t.integer  "committee_id"
@@ -71,6 +78,14 @@ ActiveRecord::Schema.define(version: 20140621222202) do
   end
 
   create_table "maps", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "process_steps", force: true do |t|
+    t.string   "short_name"
+    t.text     "description"
+    t.integer  "sort_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
