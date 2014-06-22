@@ -14,7 +14,7 @@
     <% @committees.each do |committee| %>
       <tr>
         <td><%= committee.name %></td>
-        <td><%= committee.type %></td>
+        <td><%= committee.comm_type %></td>
         <td><%= committee.info_url %></td>
         <td><%= link_to 'Show', committee %></td>
         <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
