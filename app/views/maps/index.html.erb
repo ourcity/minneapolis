@@ -1,4 +1,4 @@
-<h1>Listing maps</h1>
+<h1>Maps</h1>
 
 <table>
   <thead>
@@ -10,14 +10,10 @@
   <tbody>
     <% @maps.each do |map| %>
       <tr>
-        <td><%= link_to 'Show', map %></td>
-        <td><%= link_to 'Edit', edit_map_path(map) %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Map #{map.id}", map %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Map', new_map_path %>

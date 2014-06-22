@@ -3,9 +3,17 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @maps }
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @map }
+    end
   end
 
   private
