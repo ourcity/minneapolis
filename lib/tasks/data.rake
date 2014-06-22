@@ -1,5 +1,5 @@
 namespace :data do 
-  desc "add Grants to DB"
+  desc "add Committees and Council Members to DB"
   task comittees: [:environment] do   
 
     dir = "data"
@@ -27,4 +27,20 @@ namespace :data do
 			puts "Updated info for #{council_member.id}"
 		end
 	end
+
+	desc "add Process Steps to DB"
+  task process_steps: [:environment] do   
+
+    dir = "data"
+    process_steps_file = File.join(dir, "process_steps.csv")
+
+    CSV.parse(open(process_steps_file).read, headers: true) do |row|
+      process_steps = ProcessStep.where(id: row['id']).first_or_initialize
+      process_steps.sort_order = row['sort_order']
+      process_steps.short_name = row['short_name']
+      process_steps.description = row['description']
+      process_steps.save!
+      
+      puts "Updated info for #{process_steps.id}"
+    end
 end
