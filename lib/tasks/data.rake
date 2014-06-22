@@ -1,6 +1,6 @@
 namespace :data do 
   desc "add Committees and Council Members to DB"
-  task comittees: [:environment] do   
+  task committees: [:environment] do   
 
     dir = "data"
     committees_file = File.join(dir, "committees.csv")
@@ -17,7 +17,7 @@ namespace :data do
 
     council_member_file = File.join(dir, "council_members.csv")
 
-    CSV.parse(open(key_people_file).read, headers: true) do |row|
+    CSV.parse(open(council_member_file).read, headers: true) do |row|
       council_member = CouncilMember.where(id: row['id']).first_or_initialize
       council_member.ward = row['ward']
       council_member.first_name = row['first_name']
@@ -43,4 +43,5 @@ namespace :data do
       
       puts "Updated info for #{process_steps.id}"
     end
+  end
 end
