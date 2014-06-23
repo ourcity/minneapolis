@@ -33,6 +33,7 @@ GEM
     arel (5.0.1.20140414130214)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
+    bower-rails (0.7.3)
     builder (3.2.2)
     coderay (1.1.0)
     erubis (2.7.0)
@@ -45,7 +46,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.9.2)
-    leaflet-rails (0.7.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -124,9 +124,9 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter
   bootstrap-sass (~> 3.1.1)
+  bower-rails
   geocoder
   jquery-rails
-  leaflet-rails
   pg
   pry-rails
   rails (= 4.1.1)

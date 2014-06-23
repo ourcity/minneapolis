@@ -1,0 +1,8 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "esri-leaflet": "latest",
+    "leaflet": "latest",
+    "lodash": "latest"
+  }
+}

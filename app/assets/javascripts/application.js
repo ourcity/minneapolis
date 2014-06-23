@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lodash
 //= require leaflet
+//= require esri-leaflet
 //= require_self
 //= require_tree .
 
