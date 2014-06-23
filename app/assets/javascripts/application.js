@@ -16,5 +16,5 @@
 //= require_self
 //= require_tree .
 
-// global Application namespace
-OurCity = {};
+// pseudo-global Application namespace
+var OurCity = {};

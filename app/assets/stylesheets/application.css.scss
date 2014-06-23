@@ -13,8 +13,5 @@
  *= depend_on_asset "layers.png"
  *= depend_on_asset "layers-2x.png"
  *= require leaflet
- *= require_self
  *= require_tree .
  */
-
-@import "bootstrap";
