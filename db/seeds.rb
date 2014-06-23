@@ -2,6 +2,12 @@ require 'csv_seeds'
 CsvSeeds.import_council_members_and_committees!
 CsvSeeds.import_process_steps!
 
+# clear the palette
+Issue.delete_all
+AgendaItem.delete_all
+ReportLink.delete_all
+Map.delete_all
+
 # issue 1: open data
 open_data = Issue.create!(
   name: 'Open Data',
@@ -73,6 +79,7 @@ Map.create!({
     zoom: 13,
     layers: [{
       base: true,
+      tile: true,
       source: 'http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png',
       params: {
         attribution: 'Mapbox',
@@ -82,3 +89,37 @@ Map.create!({
     }]
   }
 })
+
+Map.create!({
+  title: "ESRI Example",
+  name: "esri-example",
+  description: "Sample ESRI map from the esri-leaflet docs",
+  store: {
+    center: [44.96, -93.27],
+    zoom: 13,
+    layers: [{
+      base: true,
+      esri: true,
+      source: 'Topographic'
+    }]
+  }
+})
+
+Map.create!({
+  title: "Minneapolis Wards",
+  name: "minneapolis-wards",
+  description: "Minneapolis City Council Wards",
+  store: {
+    center: [44.96, -93.27],
+    zoom: 12,
+    layers: [{
+      base: true,
+      esri: true,
+      source: 'NationalGeographic'
+    }, {
+      feature: true,
+      esri: true,
+      source: 'http://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Wards2012/FeatureServer/0'
+    }]
+  }
+});

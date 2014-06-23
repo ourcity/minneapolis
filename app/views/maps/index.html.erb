@@ -10,7 +10,7 @@
   <tbody>
     <% @maps.each do |map| %>
       <tr>
-        <td><%= link_to "Map #{map.id}", map %></td>
+        <td><%= link_to map.title, map %></td>
       </tr>
     <% end %>
   </tbody>
