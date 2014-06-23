@@ -1,14 +1,22 @@
+require 'csv_seeds'
+CsvSeeds.import_council_members_and_committees!
+CsvSeeds.import_process_steps!
+
 # issue 1: open data
 open_data = Issue.create!(
   name: 'Open Data',
   summary: 'Minneapolis Open Data initatives'
 )
 
+def get_committee(committee_name)
+  Committee.where(Committee.arel_table[:name].matches("%#{committee_name}%")).first
+end
+
 open_data_1 = open_data.agenda_items.create!({
   title: 'Open Data Policy Working Group',
   description: 'Progress report on the Open Data council directive including framework, approach to policy development, key objectives, and timeline.',
   action: 'Received and Filed',
-  source: 'Committee of the Whole Agenda',
+  committee: get_committee('Committee of the Whole'),
   source_url: 'http://www.minneapolismn.gov/meetings/cow/WCMS1P-122277',
   acted_on: Time.parse('March 26, 2014 10:00 AM')
 })
@@ -27,7 +35,7 @@ honeybees_1 = honeybees.agenda_items.create!({
   title: 'Keeping of Honeybees Ordinance',
   description: 'Set a public hearing for June 16, 2014 to consider the subject matter of an ordinance amending Title 4, Chapter 74 of the Minneapolis Code of Ordinances relating to Animals and Fowl:  Miscellaneous Regulations, amending provisions related to the keeping of honeybees. (by Bender; Introduced 4/25/14)',
   action: 'Approved',
-  source: 'Health, Environment & Community Engagement Committee Agenda',
+  committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-125183',
   acted_on: Time.parse('June 2, 2014 1:30 p.m.')
 })
@@ -39,7 +47,7 @@ honeybees_2 = honeybees.agenda_items.create!({
   title: 'Honeybees',
   description: ' Consider ordinance amending Title 4, Chapter 74 of the Minneapolis Code of Ordinances relating to Animals and Fowl: Miscellaneous Regulations, amending provisions regulating the keeping of honeybees on rooftops (by Goodman).',
   action: 'Approved, with additional amendments to Sections 74.80(d) and 74.80(g)(6) as follows:',
-  source: 'Health, Environment & Community Engagement Committee Agenda',
+  committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/psch/WCMS1P-102592',
   acted_on: Time.parse('April 3, 2013 1:30 p.m.')})
 
@@ -52,11 +60,11 @@ honeybees_3 = honeybees.agenda_items.create!({
   title: 'Keeping of Honeybees Ordinance',
   description: 'Subject matter of an ordinance amending Title 4, Chapter 74 of the Minneapolis Code of Ordinances relating to Animals and Fowl:  Miscellaneous Regulations, amending provisions related to the keeping of honeybees. (by Bender)',
   action: 'Refer to Animal Care & Control staff',
-  source: 'Health, Environment & Community Engagement Committee Agenda',
+  committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-123584',
   acted_on: Time.parse('April 3, 2013 1:30 p.m.')})
 
-Map.create({
+Map.create!({
   title: "Mapbox Example",
   name: "mapbox-example",
   description: "Sample Mapbox map from the leaflet docs",
