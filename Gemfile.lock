@@ -38,6 +38,8 @@ GEM
     coderay (1.1.0)
     erubis (2.7.0)
     execjs (2.2.0)
+    friendly_id (5.0.4)
+      activerecord (>= 4.0.0)
     geocoder (1.2.2)
     hike (1.2.3)
     i18n (0.6.9)
@@ -125,6 +127,7 @@ DEPENDENCIES
   activerecord-postgis-adapter
   bootstrap-sass (~> 3.1.1)
   bower-rails
+  friendly_id
   geocoder
   jquery-rails
   pg

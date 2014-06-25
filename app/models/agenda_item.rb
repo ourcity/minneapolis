@@ -7,4 +7,7 @@ class AgendaItem < ActiveRecord::Base
   belongs_to :council_member
 
   validates :committee, presence: true
+
+  scope :past, -> { where('acted_on < ?', Time.now) }
+  scope :upcoming, -> { where('acted_on >= ?', Time.now) }
 end
