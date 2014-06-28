@@ -6,7 +6,7 @@
       <th>Ward</th>
       <th>First name</th>
       <th>Last name</th>
-      <th>Committee member</th>
+      <th>Committees</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,9 @@
         <td><%= council_member.ward %></td>
         <td><%= council_member.first_name %></td>
         <td><%= council_member.last_name %></td>
-        <td><%= council_member.committee_member %></td>
+        <td><% council_member.committee_members.each do |committee_member| %>
+          <%= Committee.find(committee_member.committee.id).name %> 
+          <% end %></td>
         <td><%= link_to 'Show', council_member %></td>
         <td><%= link_to 'Edit', edit_council_member_path(council_member) %></td>
         <td><%= link_to 'Destroy', council_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

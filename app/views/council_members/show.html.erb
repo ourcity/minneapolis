@@ -16,8 +16,10 @@
 </p>
 
 <p>
-  <strong>Committee member:</strong>
-  <%= @council_member.committee_member %>
+  <strong>Committees:</strong>
+  <% @council_member.committee_members.each do |committee_member| %>
+  <%= Committee.find(committee_member.committee.id).name %> 
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_council_member_path(@council_member) %> |
