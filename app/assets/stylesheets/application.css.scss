@@ -10,6 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require ../plugins/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min
+ *= require ../plugins/bootstrap-3.1.1/css/bootstrap.min
+ *= require ../plugins/font-awesome-4.1.0/css/font-awesome.min
+ *= require animate.min
+ *= require style.min
+ *= require style-responsive.min
  *= require leaflet
  *= require_tree .
  */

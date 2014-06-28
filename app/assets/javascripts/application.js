@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ../plugins/jquery-ui-1.10.4/ui/minified/jquery-ui.min
+//= require ../plugins/bootstrap-3.1.1/js/bootstrap.min
+//= require ../plugins/slimscroll/jquery.slimscroll.min
 //= require lodash
 //= require leaflet
 //= require esri-leaflet
