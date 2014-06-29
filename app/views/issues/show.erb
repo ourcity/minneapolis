@@ -2,29 +2,22 @@
 <div class="jumbotron">
   <div class="container">
     <h1 class="center-block">Issue: <%= @issue.name %></h1>
-
-    <p><%= @issue.summary %></p>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h2>Your Minneapolis City Council <br> member is...</h1>
-        <img src="<%= @council_member.image_url %>">
+    <h2>Issue Summary</h2>
 
-        <p></p>
-
-        <%= link_to("#{@council_member.full_name }&raquo;".html_safe, @council_member.homepage, class: 'btn btn-primary btn-lg') %>
-    </div>
+    <p><%= @issue.summary %></p>
   </div>
   <% if @issue.committees.any? || @issue.council_members.any? %>
-        <div class="row">
-          <h2>Stakeholders</h2>
-        </div>
-        <%= render partial: "committee", collection: @issue.committees %>
-        <%= render partial: "stakeholder", collection: @issue.council_members %>
-    <% end %>
+      <div class="row">
+        <h2>Stakeholders</h2>
+      </div>
+      <%= render partial: "stakeholder", collection: @issue.council_members %>
+      <%= render partial: "committee", collection: @issue.committees %>
+  <% end %>
   <% if @issue.agenda_items.upcoming.any? %>
       <div class="row">
         <h2>Upcoming events</h2>

@@ -4,10 +4,13 @@
   <strong><%= link_to(agenda_item.acted_on.in_time_zone.to_formatted_s, agenda_item.source_url) %></strong>
 
   <p><%= agenda_item.description %></p>
-  <% for report_link in agenda_item.report_links %>
-      <p>
-        <%= link_to(report_link.title, report_link.url) %>
-      </p>
+  <% if agenda_item.report_links.any? %>
+      <h5>Report Links</h5>
+      <% for report_link in agenda_item.report_links %>
+          <p>
+            <%= link_to(report_link.title, report_link.url) %>
+          </p>
+      <% end %>
   <% end %>
 
 </div>
