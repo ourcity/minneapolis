@@ -1,0 +1,42 @@
+<!-- begin page-header -->
+			<h1 class="page-header">Process <small>header small text goes here...</small></h1>
+			<!-- end page-header -->
+			
+			<!-- begin timeline -->
+			<ul class="timeline">
+				<% ProcessStep.all.each do |process_step| %>
+			    <li>
+			        <!-- begin timeline-time -->
+			        <div class="timeline-time">
+			        	<span class="date">Process Step:</span>
+			          <span class="time"><%= process_step.sort_order %></span>
+			        </div>
+			        <!-- end timeline-time -->
+			        <!-- begin timeline-icon -->
+			        <div class="timeline-icon">
+			            <a href="javascript:;"><i class="fa fa-paper-plane"></i></a>
+			        </div>
+			        <!-- end timeline-icon -->
+			        <!-- begin timeline-body -->
+			        <div class="timeline-body">
+			            <div class="timeline-header">
+			                <span class="username">Step: <%= process_step.short_name %></span>
+			                <span class="pull-right text-muted">Text</span>
+			            </div>
+			            <div class="timeline-content">
+                            <p>
+                                <%= process_step.description %>
+                            </p>
+			            </div>
+			            <div class="timeline-footer">
+			                <p>More Info...</a>
+			            </div>
+			        </div>
+			        <!-- end timeline-body -->
+			      </li>
+			    <% end %>    
+
+			</ul>
+			<!-- end timeline -->
+		</div>
+		<!-- end #content -->

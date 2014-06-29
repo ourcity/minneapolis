@@ -1,0 +1,58 @@
+<!-- begin page-header -->
+<h1 class="page-header">Calendar <small>header small text goes here...</small></h1>
+<!-- end page-header -->
+<!-- begin panel -->
+<div class="panel panel-inverse">
+  <div class="panel-heading">
+    <div class="panel-heading-btn">
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+    </div>
+    <h4 class="panel-title">Calendar</h4>
+  </div>
+  <div class="panel-body p-0">
+    <div class="vertical-box">
+      <div class="vertical-column p-15 bg-silver width-sm">
+        <div id="external-events" class="calendar-event width-sm">
+          <h4 class=" m-b-20">Draggable Events</h4>
+          <div class="external-event bg-purple" data-bg="bg-purple" data-title="Discussion" data-media="<i class='fa fa-comments'></i>" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+              <h5><i class="fa fa-comments fa-lg fa-fw"></i> Discussion</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="external-event bg-blue" data-bg="bg-blue" data-title="Dinner" data-media="<i class='fa fa-cutlery'></i>" data-desc="Cum sociis natoque penatibus et magnis dis parturient montes."> 
+              <h5><i class="fa fa-cutlery fa-lg fa-fw"></i> Dinner</h5>
+              <p>Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+          </div>
+          <div class="external-event bg-green" data-bg="bg-green" data-title="Brainstorming" data-media="<i class='fa fa-lightbulb-o'></i>" data-desc="Mauris tristique massa eu venenatis semper. Phasellus a nibh nisi.">
+              <h5><i class="fa fa-lightbulb-o fa-lg fa-fw"></i> Brainstorming</h5>
+              <p>Mauris tristique massa eu venenatis semper. Phasellus a nibh nisi.</p>
+          </div>
+          <div class="external-event bg-orange" data-bg="bg-orange" data-title="Performance Rating" data-media="<i class='fa fa-tasks'></i>" data-desc="Class aptent taciti sociosqu ad litora torquent per conubia nostra.">
+               <h5><i class="fa fa-tasks fa-lg fa-fw"></i> Performance Rating</h5>
+              <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+          </div>
+          <div class="external-event bg-red" data-bg="bg-red" data-title="Video Shooting" data-media="<i class='fa fa-video-camera'></i>" data-desc="Donec ligula nisi, tempus eu egestas id, auctor sit amet velit.">
+              <h5><i class="fa fa-video-camera fa-lg fa-fw"></i> Video Shooting</h5>
+              <p>Donec ligula nisi, tempus eu egestas id, auctor sit amet velit.</p>
+          </div>
+          <div class="checkbox">
+              <input type="checkbox" id="drop-remove" />
+              <label for="drop-remove">remove after drop</label>
+          </div>
+        </div>
+      </div>
+      <div id="calendar" class="vertical-column p-15 calendar"></div>
+    </div>
+  </div>
+</div>
+<!-- end panel -->
+</div>
+<!-- end #content -->
+
+<script>
+$(document).ready(function() {
+	Calendar.init();
+	});
+</script>

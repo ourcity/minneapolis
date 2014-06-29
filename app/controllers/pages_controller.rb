@@ -1,8 +1,15 @@
 class PagesController < ApplicationController
+  
   def index
-  	@council_members = CouncilMember.all
   end
 
   def about
   end
+
+  def process_steps
+  end
+
+  def calendar
+  end
+  
 end

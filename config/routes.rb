@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   get 'pages/about'
-  get 'pages/process'
+  get 'pages/process_steps'
+  get 'pages/calendar'
 
   resources :issues
   resources :maps
