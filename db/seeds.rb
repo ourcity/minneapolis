@@ -73,6 +73,20 @@ honeybees_3 = honeybees.agenda_items.create!({
   acted_on: Time.parse('April 3, 2013 1:30 p.m.'),
   council_member: CouncilMember.find_by_last_name('Bender')})
 
+honeybees_4 = honeybees.agenda_items.create!({
+  title: 'Keeping of Honeybees Ordinance Amendment',
+  description: 'Subject matter of an ordinance amending Title 4, Chapter 74 of the Minneapolis Code of Ordinances relating to Animals and Fowl:  Miscellaneous Regulations, amending provisions related to the keeping of honeybees.  (by Bender; Introduced 4/25/14)',
+  action: 'Continued public hearing to July 7, 2014.',
+  committee: get_committee('Health, Environment & Community Engagement'),
+  source_url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-126405',
+  acted_on: Time.parse('June 16, 2014 1:30 p.m.'),
+  council_member: CouncilMember.find_by_last_name('Bender')})
+
+honeybees_4.report_links.create!(
+  title: 'Proposed Ordinated Language',
+  url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-126475'
+)
+
 Map.create!({
   title: "Mapbox Example",
   name: "mapbox-example",

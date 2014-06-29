@@ -6,11 +6,15 @@
   <p><%= agenda_item.description %></p>
   <% if agenda_item.report_links.any? %>
       <h5>Report Links</h5>
-      <% for report_link in agenda_item.report_links %>
-          <p>
-            <%= link_to(report_link.title, report_link.url) %>
-          </p>
-      <% end %>
+      <ul>
+        <% for report_link in agenda_item.report_links %>
+            <li>
+              <%= link_to(report_link.title, report_link.url) %>
+            </li>
+        <% end %>
+      </ul>
   <% end %>
+
+  <p><strong><%= agenda_item.action %></strong></p>
 
 </div>

@@ -8,6 +8,7 @@ class AgendaItem < ActiveRecord::Base
 
   validates :committee, presence: true
 
+  scope :timeline, -> { order('acted_on DESC') }
   scope :past, -> { where('acted_on < ?', Time.now) }
   scope :upcoming, -> { where('acted_on >= ?', Time.now) }
 end
