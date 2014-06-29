@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-  	@committee_members = CommitteeMember.all
+  	@council_members = CouncilMember.all
   end
 
   def about
