@@ -18,6 +18,13 @@
         <%= link_to("#{@council_member.full_name }&raquo;".html_safe, @council_member.homepage, class: 'btn btn-primary btn-lg') %>
     </div>
   </div>
+  <% if @issue.committees.any? || @issue.council_members.any? %>
+        <div class="row">
+          <h2>Stakeholders</h2>
+        </div>
+        <%= render partial: "committee", collection: @issue.committees %>
+        <%= render partial: "stakeholder", collection: @issue.council_members %>
+    <% end %>
   <% if @issue.agenda_items.upcoming.any? %>
       <div class="row">
         <h2>Upcoming events</h2>

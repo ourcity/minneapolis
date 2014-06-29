@@ -43,10 +43,11 @@ honeybees_1 = honeybees.agenda_items.create!({
   action: 'Approved',
   committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-125183',
-  acted_on: Time.parse('June 2, 2014 1:30 p.m.')
+  acted_on: Time.parse('June 2, 2014 1:30 p.m.'),
+  council_member: CouncilMember.find_by_last_name('Bender')
 })
 
-honeybees_1.report_links.create!(title: 'Staff Report:',
+honeybees_1.report_links.create!(title: 'Staff Report',
                                  url: 'http://www.minneapolismn.gov/www/groups/public/@clerk/documents/webcontent/wcms1p-125632.pdf')
 
 honeybees_2 = honeybees.agenda_items.create!({
@@ -55,7 +56,8 @@ honeybees_2 = honeybees.agenda_items.create!({
   action: 'Approved, with additional amendments to Sections 74.80(d) and 74.80(g)(6) as follows:',
   committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/psch/WCMS1P-102592',
-  acted_on: Time.parse('April 3, 2013 1:30 p.m.')})
+  acted_on: Time.parse('April 3, 2013 1:30 p.m.'),
+  council_member: CouncilMember.find_by_last_name('Goodman')})
 
 honeybees_2.report_links.create!(title: 'Honeybees RCA',
                                  url: 'http://www.minneapolismn.gov/www/groups/public/@clerk/documents/webcontent/wcms1p-105484.pdf')
@@ -68,7 +70,8 @@ honeybees_3 = honeybees.agenda_items.create!({
   action: 'Refer to Animal Care & Control staff',
   committee: get_committee('Health, Environment & Community Engagement'),
   source_url: 'http://www.minneapolismn.gov/meetings/hece/WCMS1P-123584',
-  acted_on: Time.parse('April 3, 2013 1:30 p.m.')})
+  acted_on: Time.parse('April 3, 2013 1:30 p.m.'),
+  council_member: CouncilMember.find_by_last_name('Bender')})
 
 Map.create!({
   title: "Mapbox Example",

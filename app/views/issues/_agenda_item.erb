@@ -1,6 +1,13 @@
 <div class="row">
   <h3><%= agenda_item.title %></h3>
   <h4><%= agenda_item.committee.name %></h4>
-  <strong><%= agenda_item.acted_on.in_time_zone %></strong>
+  <strong><%= link_to(agenda_item.acted_on.in_time_zone.to_formatted_s, agenda_item.source_url) %></strong>
+
   <p><%= agenda_item.description %></p>
+  <% for report_link in agenda_item.report_links %>
+      <p>
+        <%= link_to(report_link.title, report_link.url) %>
+      </p>
+  <% end %>
+
 </div>
