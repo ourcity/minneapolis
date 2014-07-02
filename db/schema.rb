@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140623025838) do
 
   # These are extensions that must be enabled in order to support this database
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140623025838) do
     t.string   "info_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",       limit: 150
   end
 
   create_table "council_members", force: true do |t|
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140623025838) do
     t.integer  "committee_member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug",       limit: 100
   end
 
   add_index "council_members", ["committee_member_id"], :name => "index_council_members_on_committee_member_id"
