@@ -15,5 +15,7 @@
   <%= @committee.info_url %>
 </p>
 
+<%= render partial: "shared/timeline", locals: {agenda_items: @committee.agenda_items.timeline} %>
+
 <%= link_to 'Edit', edit_committee_path(@committee) %> |
 <%= link_to 'Back', committees_path %>

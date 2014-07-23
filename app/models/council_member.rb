@@ -3,6 +3,7 @@ class CouncilMember < ActiveRecord::Base
 
   has_many :committee_members
   has_many :committees, through: :committee_members
+  has_many :agenda_items
   friendly_id :slug_candidates, use: :slugged
 
   def full_name
