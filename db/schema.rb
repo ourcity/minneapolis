@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20140629224347) do
     t.integer  "process_step_id"
     t.integer  "committee_id"
     t.integer  "council_member_id"
-    t.integer  "introducer_id"
   end
 
   add_index "agenda_items", ["committee_id"], :name => "index_agenda_items_on_committee_id"
