@@ -15,6 +15,7 @@
 				
 				<!-- begin header navigation right -->
 				<ul class="nav navbar-nav navbar-right">
+					<% if user_signed_in? %>
 					<li>
 						<form class="navbar-form full-width">
 							<div class="form-group">
@@ -85,18 +86,22 @@
 					<li class="dropdown navbar-user">
 						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="assets/img/user-11.jpg" alt="" /> 
-							<span class="hidden-xs">Adam Schwartz</span> <b class="caret"></b>
+							<span class="hidden-xs"><%= @current_user.email %></span> <b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu animated fadeInLeft">
 							<li class="arrow"></li>
-							<li><a href="javascript:;">Edit Profile</a></li>
+							<li><a href="javascript:;"><%= link_to "Edit Profile", edit_user(@current_user) %></a></li>
 							<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
 							<li><a href="javascript:;">Calendar</a></li>
 							<li><a href="javascript:;">Setting</a></li>
 							<li class="divider"></li>
-							<li><a href="javascript:;">Log Out</a></li>
+							<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+							
 						</ul>
 					</li>
+					<% else %>
+					<li><%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Login", new_user_session_path %></li>
+						<% end %>
 				</ul>
 				<!-- end header navigation right -->
 			</div>
