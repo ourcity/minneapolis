@@ -2,6 +2,7 @@
 <div id="sidebar" class="sidebar">
 	<!-- begin sidebar scrollbar -->
 	<div data-scrollbar="true" data-height="100%">
+		<% if user_signed_in? %>
 		<!-- begin sidebar user -->
 		<ul class="nav">
 			<li class="nav-profile">
@@ -14,6 +15,7 @@
 				</div>
 			</li>
 		</ul>
+		<% end %>
 		<!-- end sidebar user -->
 		<!-- begin sidebar nav -->
 		<ul class="nav">
@@ -31,7 +33,7 @@
 					<li><a href="map_google.html">Google Map</a></li>
 				</ul>
 			</li>
-			<li><%= link_to "<i class='fa fa-camera'></i> Current Issues".html_safe, issues_path %></li>
+			<li><%= link_to "<i class='fa fa-camera'></i><span> Current Issues</span>".html_safe, issues_path %></li>
 			<li class="has-sub">
 				<a href="javascript:;">
 				    <i class="fa fa-suitcase"></i> 
@@ -56,7 +58,7 @@
 					<% end %>
 				</ul>
 			</li>
-			<li><%= link_to "<i class='fa fa-calendar'></i>Calendar".html_safe, pages_calendar_path %></li>
+			<li><%= link_to "<i class='fa fa-calendar'></i> <span>Calendar</span>".html_safe, pages_calendar_path %></li>
 			<li><a href="gallery.html"><i class="fa fa-camera"></i> <span>Current Issues</span></a></li>
 			<li class="has-sub">
 				<a href="javascript:;">
@@ -68,7 +70,7 @@
 					<li><%= link_to "About the Process", pages_process_steps_path %></li>
 				</ul>
 			</li>
-			<li><%= link_to "<i class='fa fa-camera'></i>About Our City".html_safe, pages_about_path %></li>
+			<li><%= link_to "<i class='fa fa-camera'></i><span>About Our City</span>".html_safe, pages_about_path %></li>
 			</li>
 	        <!-- begin sidebar minify button -->
 			<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>

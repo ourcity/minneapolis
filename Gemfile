@@ -18,9 +18,9 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'guard-rspec',      require: false
   # Uncomment this line on OS X.
-  # gem 'terminal-notifier-guard'
+  gem 'terminal-notifier-guard'
   # Uncomment this line on linux.
-  gem 'libnotify'
+  # gem 'libnotify'
   gem 'spring'
 end
 
