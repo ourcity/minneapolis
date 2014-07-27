@@ -1,0 +1,15 @@
+<% if agenda_items.any? %>
+    <h3>Timeline</h3>
+    <% if agenda_items.upcoming.any? %>
+        <div class="row">
+          <h2>Upcoming events</h2>
+        </div>
+        <%= render partial: "shared/agenda_item", collection: agenda_items.upcoming %>
+    <% end %>
+    <% if agenda_items.past.any? %>
+        <div class="row">
+          <h2>Past events</h2>
+        </div>
+        <%= render partial: "shared/agenda_item", collection: agenda_items.past %>
+    <% end %>
+<% end %>

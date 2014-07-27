@@ -18,18 +18,8 @@
       <%= render partial: "stakeholder", collection: @issue.council_members %>
       <%= render partial: "committee", collection: @issue.committees %>
   <% end %>
-  <% if @issue.agenda_items.upcoming.any? %>
-      <div class="row">
-        <h2>Upcoming events</h2>
-      </div>
-      <%= render partial: "agenda_item", collection: @issue.agenda_items.timeline.upcoming %>
-  <% end %>
-  <% if @issue.agenda_items.past.any? %>
-      <div class="row">
-        <h2>Past events</h2>
-      </div>
-      <%= render partial: "agenda_item", collection: @issue.agenda_items.timeline.past %>
-  <% end %>
+
+  <%= render partial: "shared/timeline", locals: {agenda_items: @issue.agenda_items.timeline} %>
 
   <hr>
 </div> <!-- /container -->
