@@ -62,13 +62,10 @@ ActiveRecord::Schema.define(version: 20140715000321) do
     t.string   "ward"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "committee_member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",                limit: 100
+    t.string   "slug",       limit: 100
   end
-
-  add_index "council_members", ["committee_member_id"], :name => "index_council_members_on_committee_member_id"
 
   create_table "issues", force: true do |t|
     t.string   "name"
@@ -79,6 +76,10 @@ ActiveRecord::Schema.define(version: 20140715000321) do
   end
 
   create_table "maps", force: true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "description"
+    t.json     "store"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
