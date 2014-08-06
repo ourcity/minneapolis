@@ -94,6 +94,7 @@
 
 
 <%= render partial: "shared/timeline", locals: {agenda_items: @council_member.agenda_items.timeline} %>
+<%= render partial: "shared/subscription_form", locals: {subscribable: @council_member} %>
 
 <%= link_to 'Edit', edit_council_member_path(@council_member) %> |
 <%= link_to 'Back', council_members_path %>

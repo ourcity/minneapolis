@@ -21,5 +21,6 @@
 
   <%= render partial: "shared/timeline", locals: {agenda_items: @issue.agenda_items.timeline} %>
 
+  <%= render partial: "shared/subscription_form", locals: {subscribable: @issue} %>
   <hr>
 </div> <!-- /container -->

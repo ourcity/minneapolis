@@ -1,10 +1,11 @@
 class CouncilMember < ActiveRecord::Base
   extend FriendlyId
 
+  has_many :agenda_items
   has_many :committee_members
   has_many :committees, through: :committee_members
-  has_many :agenda_items
   friendly_id :slug_candidates, use: :slugged
+  has_many :subscriptions, as: :subscribable
 
   def full_name
     [first_name, last_name].join(' ')

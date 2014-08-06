@@ -1,0 +1,8 @@
+<div class="subscription_box">
+  <%= form_tag(subscriptions_path, remote: true) do -%>
+      <h3>Sign up for <%= subscribable.class.name.titleize %> updates: </h3>
+      <%= email_field_tag(:email, '', placeholder: 'Enter e-mail address') %>
+      <%= hidden_field_tag(subscribable.class.name.foreign_key, subscribable.id) %>
+      <div><%= submit_tag 'Sign me up!' %></div>
+  <% end -%>
+</div>
