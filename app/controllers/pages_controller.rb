@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-  
+
   def index
+    @map = Map.first
   end
 
   def about
@@ -11,5 +12,5 @@ class PagesController < ApplicationController
 
   def calendar
   end
-  
+
 end

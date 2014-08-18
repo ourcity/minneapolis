@@ -20,7 +20,7 @@
 		<!-- begin sidebar nav -->
 		<ul class="nav">
 			<li class="active">
-				<a href="index.html"><i class="fa fa-laptop"></i> <span>Dashboard</span></a>
+      <a href=<%= root_path %>><i class="fa fa-laptop"></i> <span>Dashboard</span></a>
 			</li>
 			<li class="has-sub">
 			    <a href="javascript:;">
@@ -29,28 +29,29 @@
 			        <span>Map</span>
 			    </a>
 				<ul class="sub-menu">
-					<li><a href="map_vector.html">Vector Map</a></li>
-					<li><a href="map_google.html">Google Map</a></li>
+          <% Map.all.each do |map| %>
+            <li><%= link_to map.title, map %></li>
+          <% end %>
 				</ul>
 			</li>
 			<li><%= link_to "<i class='fa fa-camera'></i><span> Current Issues</span>".html_safe, issues_path %></li>
 			<li class="has-sub">
 				<a href="javascript:;">
-				    <i class="fa fa-suitcase"></i> 
+				    <i class="fa fa-suitcase"></i>
 				    <b class="caret pull-right"></b>
-				    <span>Council Members</span> 
+				    <span>Council Members</span>
 				</a>
 				<ul class="sub-menu">
 					<% CouncilMember.all.each do |council_member| %>
-					<li><%= link_to council_member.full_name, council_member %></li>
+  					<li><%= link_to council_member.full_name, council_member %></li>
 					<% end %>
 				</ul>
 			</li>
 			<li class="has-sub">
 				<a href="javascript:;">
-				    <i class="fa fa-suitcase"></i> 
+				    <i class="fa fa-suitcase"></i>
 				    <b class="caret pull-right"></b>
-				    <span>Committees</span> 
+				    <span>Committees</span>
 				</a>
 				<ul class="sub-menu">
 					<% Committee.all.each do |committee| %>

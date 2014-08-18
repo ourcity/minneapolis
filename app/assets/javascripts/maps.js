@@ -5,7 +5,7 @@ OurCity.map = {
 
   init: function(id){
     var that  = this,
-    url   = window.location.host + '/maps/' + id;
+        url   = window.location.host + '/maps/' + id;
 
     $.getJSON(window.location.origin + '/maps/' + id, function(data){
       that.build(data);
@@ -14,7 +14,7 @@ OurCity.map = {
 
   build: function(data) {
     var store   = data.store,
-    layers  = store.layers;
+        layers  = store.layers;
 
     map = L.map('map').setView(store.center, store.zoom);
     if (layers) {

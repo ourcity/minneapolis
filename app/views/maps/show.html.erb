@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', maps_path %>
-
 <div id="map"></div>
 
 <script>
-OurCity.map.init(<%= @map.id %>);
+  OurCity.map.init(<%= @map.id %>);
 </script>
