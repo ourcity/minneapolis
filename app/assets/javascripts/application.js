@@ -15,7 +15,6 @@
 //= require jquery-ui-1.10.4/ui/jquery-ui
 //= require bootstrap-3.1.1/js/bootstrap
 //= require slimscroll/jquery.slimscroll
-//= require dashboard
 //= require lodash
 //= require leaflet
 //= require esri-leaflet
