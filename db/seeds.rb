@@ -93,7 +93,7 @@ Map.create!({
   description: "Sample Mapbox map from the leaflet docs",
   store: {
     center: [44.96, -93.27],
-    zoom: 13,
+    zoom: 10,
     layers: [{
       base: true,
       tile: true,
@@ -113,7 +113,7 @@ Map.create!({
   description: "Sample ESRI map from the esri-leaflet docs",
   store: {
     center: [44.96, -93.27],
-    zoom: 13,
+    zoom: 10,
     layers: [{
       base: true,
       esri: true,
@@ -128,7 +128,7 @@ Map.create!({
   description: "Minneapolis City Council Wards",
   store: {
     center: [44.96, -93.27],
-    zoom: 12,
+    zoom: 10,
     layers: [{
       base: true,
       esri: true,
