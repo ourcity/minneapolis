@@ -2,5 +2,5 @@
 // All this logic will automatically be available in application.js.
 
 //= require fullcalendar/fullcalendar/fullcalendar
-//= require calendar.demo.min
-//= require apps.min
+//= require calendar.demo
+//= require apps
