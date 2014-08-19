@@ -1,41 +1,42 @@
-<!-- begin page-header -->
-<h1 class="page-header"><%= @council_member.first_name + " " + @council_member.last_name %> <small>header small text goes here...</small></h1>
-<!-- end page-header -->
+<h1 class="page-header">
+  <%= @council_member.first_name + " " + @council_member.last_name %>
+  <small>header small text goes here...</small>
+</h1>
 
-<!-- begin row -->
 <div class="row">
-  <p id="notice"><%= notice %></p>
-    <!-- begin col-6 -->
-    <div class="col-md-6">
-      <p>
-        <strong>Ward:</strong>
-        <%= @council_member.ward %>
-      </p>
+  <div class="col-md-6">
+    <p>
+      <strong>Ward:</strong>
+      <%= @council_member.ward %>
+    </p>
 
-      <p>
-        <strong>First name:</strong>
-        <%= @council_member.first_name %>
-      </p>
+    <p>
+      <strong>First name:</strong>
+      <%= @council_member.first_name %>
+    </p>
 
-      <p>
-        <strong>Last name:</strong>
-        <%= @council_member.last_name %>
-      </p>
+    <p>
+      <strong>Last name:</strong>
+      <%= @council_member.last_name %>
+    </p>
 
-      <p>
-        <strong>Committees:</strong>
-        <% @council_member.committee_members.each do |committee_member| %>
-        <%= Committee.find(committee_member.committee.id).name %> 
-        <% end %>
-      </p>
-    </div>
-    <div class="col-md-6">
-      <p>Map</p>
-    </div>
+    <p>
+      <strong>Committees:</strong>
+      <% @council_member.committee_members.each do |committee_member| %>
+      <%= Committee.find(committee_member.committee.id).name %>
+      <% end %>
+    </p>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-12">
+
+  <div class="col-md-6">
+    <p>Map</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
     <h2>Committee Activities</h2>
     <ul class="nav nav-tabs">
       <li class="active"><a href="#default-tab-1" data-toggle="tab">Default Tab 1</a></li>
@@ -46,10 +47,10 @@
       <div class="tab-pane fade active in" id="default-tab-1">
         <h3 class="m-t-10"><i class="fa fa-cog"></i> Lorem ipsum dolor sit amet</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor, 
-          est diam sagittis orci, a ornare nisi quam elementum tortor. Proin interdum ante porta est convallis 
-          dapibus dictum in nibh. Aenean quis massa congue metus mollis fermentum eget et tellus. 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Integer ac dui eu felis hendrerit lobortis. Phasellus elementum, nibh eget adipiscing porttitor,
+          est diam sagittis orci, a ornare nisi quam elementum tortor. Proin interdum ante porta est convallis
+          dapibus dictum in nibh. Aenean quis massa congue metus mollis fermentum eget et tellus.
           Aenean tincidunt, mauris ut dignissim lacinia, nisi urna consectetur sapien, nec eleifend orci eros id lectus.
         </p>
         <p class="text-right m-b-0">
@@ -64,8 +65,8 @@
         </blockquote>
         <h4>Lorem ipsum dolor sit amet</h4>
         <p>
-          Nullam ac sapien justo. Nam augue mauris, malesuada non magna sed, feugiat blandit ligula. 
-          In tristique tincidunt purus id iaculis. Pellentesque volutpat tortor a mauris convallis, 
+          Nullam ac sapien justo. Nam augue mauris, malesuada non magna sed, feugiat blandit ligula.
+          In tristique tincidunt purus id iaculis. Pellentesque volutpat tortor a mauris convallis,
           sit amet scelerisque lectus adipiscing.
         </p>
       </div>
@@ -75,23 +76,20 @@
             <i class="fa fa-square-o fa-stack-2x"></i>
             <i class="fa fa-twitter fa-stack-1x"></i>
           </span>
-          Praesent tincidunt nulla ut elit vestibulum viverra. Sed placerat magna eget eros accumsan elementum. 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis lobortis neque. 
-          Maecenas justo odio, bibendum fringilla quam nec, commodo rutrum quam. 
-          Donec cursus erat in lacus congue sodales. Nunc bibendum id augue sit amet placerat. 
-          Quisque et quam id felis tempus volutpat at at diam. Vivamus ac diam turpis.Sed at lacinia augue. 
-          Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla. 
+          Praesent tincidunt nulla ut elit vestibulum viverra. Sed placerat magna eget eros accumsan elementum.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis lobortis neque.
+          Maecenas justo odio, bibendum fringilla quam nec, commodo rutrum quam.
+          Donec cursus erat in lacus congue sodales. Nunc bibendum id augue sit amet placerat.
+          Quisque et quam id felis tempus volutpat at at diam. Vivamus ac diam turpis.Sed at lacinia augue.
+          Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
           Quisque adipiscing dui nec orci fermentum blandit.
-          Sed at lacinia augue. Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla. 
+          Sed at lacinia augue. Nulla facilisi. Fusce at erat suscipit, dapibus elit quis, luctus nulla.
           Quisque adipiscing dui nec orci fermentum blandit.
         </p>
       </div>
     </div>
   </div>
 </div>
-    
-    <!-- end col-6 -->
-
 
 <%= render partial: "shared/timeline", locals: {agenda_items: @council_member.agenda_items.timeline} %>
 <%= render partial: "shared/subscription_form", locals: {subscribable: @council_member} %>
