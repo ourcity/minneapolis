@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def index
-    @map = Map.first
+    @map = Map.where(name: "minneapolis-wards").first
   end
 
   def about
