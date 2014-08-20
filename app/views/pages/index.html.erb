@@ -1,7 +1,5 @@
 <h1 class="page-header"><small>Find your city council ward.</small></h1>
 
-<div id="map"></div>
+<%= render "shared/geocoder" %>
 
-<script>
-  OurCity.map.init(<%= @map.id %>);
-</script>
+<%= render "shared/map" %>
