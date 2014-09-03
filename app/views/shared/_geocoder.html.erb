@@ -5,7 +5,7 @@
         <h4 class="panel-title">Address Lookup</h4>
       </div>
       <div class="panel-body">
-        <form class="form-horizontal">
+        <form id="geocode-form" class="form-horizontal">
           <div class="form-group">
             <label class="col-md-3 control-label">Street Address</label>
             <div class="col-md-9">
@@ -20,8 +20,20 @@
               </input>
             </div>
           </div>
+          <div class="form-group">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-sm btn-success">
+                Lookup
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  OurCity.geocoder.init();
+</script>

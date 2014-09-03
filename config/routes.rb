@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   resources :users
 
-  root 'pages#index'
-  get 'pages/about'
-  get 'pages/process_steps'
-  get 'pages/calendar'
+  root  'pages#index'
+  get   'pages/about'
+  get   'pages/process_steps'
+  get   'pages/calendar'
+  post  'geocoder/search'
 
   resources :issues
   resources :maps
