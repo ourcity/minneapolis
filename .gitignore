@@ -17,3 +17,6 @@
 
 # Ignore the full source directory of our bootstrap theme
 /pixel_admin*
+
+# Ignore dotenv file
+.env
