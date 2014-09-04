@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140903023505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
   enable_extension "hstore"
 
   create_table "agenda_items", force: true do |t|
@@ -33,9 +32,9 @@ ActiveRecord::Schema.define(version: 20140903023505) do
     t.integer  "council_member_id"
   end
 
-  add_index "agenda_items", ["committee_id"], :name => "index_agenda_items_on_committee_id"
-  add_index "agenda_items", ["council_member_id"], :name => "index_agenda_items_on_council_member_id"
-  add_index "agenda_items", ["process_step_id"], :name => "index_agenda_items_on_process_step_id"
+  add_index "agenda_items", ["committee_id"], name: "index_agenda_items_on_committee_id", using: :btree
+  add_index "agenda_items", ["council_member_id"], name: "index_agenda_items_on_council_member_id", using: :btree
+  add_index "agenda_items", ["process_step_id"], name: "index_agenda_items_on_process_step_id", using: :btree
 
   create_table "committee_members", force: true do |t|
     t.integer  "committee_id"
@@ -46,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140903023505) do
     t.datetime "updated_at"
   end
 
-  add_index "committee_members", ["committee_id"], :name => "index_committee_members_on_committee_id"
-  add_index "committee_members", ["council_member_id"], :name => "index_committee_members_on_council_member_id"
+  add_index "committee_members", ["committee_id"], name: "index_committee_members_on_committee_id", using: :btree
+  add_index "committee_members", ["council_member_id"], name: "index_committee_members_on_council_member_id", using: :btree
 
   create_table "committees", force: true do |t|
     t.string   "name"
@@ -78,9 +77,9 @@ ActiveRecord::Schema.define(version: 20140903023505) do
   create_table "locations", force: true do |t|
     t.integer  "user_id"
     t.string   "address"
-    t.float    "latitude",                                                            null: false
-    t.float    "longitude",                                                           null: false
-    t.spatial  "lonlat",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.float    "latitude",   null: false
+    t.float    "longitude",  null: false
+    t.string   "lonlat"
     t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -139,7 +138,7 @@ ActiveRecord::Schema.define(version: 20140903023505) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

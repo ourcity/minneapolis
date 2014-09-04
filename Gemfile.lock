@@ -21,9 +21,6 @@ GEM
       activemodel (= 4.1.5)
       activesupport (= 4.1.5)
       arel (~> 5.0.0)
-    activerecord-postgis-adapter (2.2.0)
-      activerecord (~> 4.0)
-      rgeo-activerecord (~> 1.0)
     activesupport (4.1.5)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -159,10 +156,6 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rgeo (0.3.20)
-    rgeo-activerecord (1.2.0)
-      activerecord (~> 4.0)
-      rgeo (~> 0.3)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -234,7 +227,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
   bower-rails

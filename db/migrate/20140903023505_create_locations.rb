@@ -5,7 +5,8 @@ class CreateLocations < ActiveRecord::Migration
       t.string      :address
       t.float       :latitude,  null: false
       t.float       :longitude, null: false
-      t.point       :lonlat,    geographic: true, spatial: true, index: true
+      #t.point       :lonlat,    geographic: true, spatial: true, index: true
+      t.string      :lonlat,    index: true
       t.json        :data
 
       t.timestamps

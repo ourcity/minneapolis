@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
 
   private
 
-  # PostGIS goodness
+  # PostGIS goodness, but useful to leaflet even without PostGIS
   def setLonLat
     # keep in mind that this format is longitude, latitude, not the other way
     self.lonlat = "POINT(#{longitude} #{latitude})"
