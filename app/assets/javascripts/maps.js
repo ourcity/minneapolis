@@ -16,7 +16,9 @@ OurCity.map = {
     var store   = data.store,
         layers  = store.layers;
 
-    map = L.map('map').setView(store.center, store.zoom);
+    map = L.map('map', {
+      scrollWheelZoom: false
+    }).setView(store.center, store.zoom);
     if (layers) {
       this.discernLayers(layers);
     }
