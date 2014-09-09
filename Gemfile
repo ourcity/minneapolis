@@ -17,13 +17,18 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'guard-livereload', require: false
-  gem 'guard-rspec',      require: false
-  # Uncomment this line on OS X.
-  gem 'terminal-notifier-guard'
-  # Uncomment this line on linux.
-  gem 'libnotify'
+  gem 'guard-rspec', require: false
   gem 'spring'
 end
+
+group :linux do
+  gem 'libnotify'
+end
+
+group :osx do
+  gem 'terminal-notifier-guard'
+end
+
 
 group :development, :test do
   gem 'factory_girl_rails'
