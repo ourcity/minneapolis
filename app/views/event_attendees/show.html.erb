@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Voting setting:</strong>
+  <%= @event_attendee.voting_setting %>
+</p>
+
+<p>
+  <strong>Meeting status:</strong>
+  <%= @event_attendee.meeting_status %>
+</p>
+
+<p>
+  <strong>Order of appearance:</strong>
+  <%= @event_attendee.order_of_appearance %>
+</p>
+
+<p>
+  <strong>Council member:</strong>
+  <%= @event_attendee.council_member %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event_attendee.event %>
+</p>
+
+<%= link_to 'Edit', edit_event_attendee_path(@event_attendee) %> |
+<%= link_to 'Back', event_attendees_path %>

@@ -21,8 +21,10 @@ group :development do
   # Uncomment this line on OS X.
   gem 'terminal-notifier-guard'
   # Uncomment this line on linux.
-  gem 'libnotify'
+  # gem 'libnotify'
   gem 'spring'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development, :test do

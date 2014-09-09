@@ -13,7 +13,7 @@
   <%= @committee.info_url %>
 </p>
 
-<%= render partial: "shared/timeline", locals: {agenda_items: @committee.agenda_items.timeline} %>
+< render partial: "shared/timeline", locals: {agenda_items: @committee.agenda_items.timeline} %>
 <%= render partial: "shared/subscription_form", locals: {subscribable: @committee} %>
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |

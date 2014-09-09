@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Agenda url:</strong>
+  <%= @event.agenda_url %>
+</p>
+
+<p>
+  <strong>Archive status:</strong>
+  <%= @event.archive_status %>
+</p>
+
+<p>
+  <strong>Committee:</strong>
+  <%= @event.committee %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @event.event_type %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

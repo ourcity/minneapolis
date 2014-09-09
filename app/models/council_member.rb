@@ -3,7 +3,10 @@ class CouncilMember < ActiveRecord::Base
 
   has_many :agenda_items
   has_many :committee_members
+  has_many :committee_members
   has_many :committees, through: :committee_members
+  has_many :events_attendees
+  has_many :events, through: :event_attendees
   friendly_id :slug_candidates, use: :slugged
   has_many :subscriptions, as: :subscribable
 

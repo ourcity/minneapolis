@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903023505) do
+ActiveRecord::Schema.define(version: 20140909021245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,16 @@ ActiveRecord::Schema.define(version: 20140903023505) do
     t.integer  "process_step_id"
     t.integer  "committee_id"
     t.integer  "council_member_id"
+    t.integer  "event_id"
+    t.string   "roll_call"
+    t.string   "motion"
+    t.string   "vote"
+    t.text     "notes"
   end
 
   add_index "agenda_items", ["committee_id"], name: "index_agenda_items_on_committee_id", using: :btree
   add_index "agenda_items", ["council_member_id"], name: "index_agenda_items_on_council_member_id", using: :btree
+  add_index "agenda_items", ["event_id"], name: "index_agenda_items_on_event_id", using: :btree
   add_index "agenda_items", ["process_step_id"], name: "index_agenda_items_on_process_step_id", using: :btree
 
   create_table "committee_members", force: true do |t|
@@ -65,6 +71,32 @@ ActiveRecord::Schema.define(version: 20140903023505) do
     t.datetime "updated_at"
     t.string   "slug",       limit: 100
   end
+
+  create_table "event_attendees", force: true do |t|
+    t.string   "voting_setting"
+    t.string   "meeting_status"
+    t.string   "order_of_appearance"
+    t.integer  "council_member_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_attendees", ["council_member_id"], name: "index_event_attendees_on_council_member_id", using: :btree
+  add_index "event_attendees", ["event_id"], name: "index_event_attendees_on_event_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "description"
+    t.datetime "date"
+    t.string   "agenda_url"
+    t.string   "archive_status"
+    t.integer  "committee_id"
+    t.string   "event_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["committee_id"], name: "index_events_on_committee_id", using: :btree
 
   create_table "issues", force: true do |t|
     t.string   "name"
