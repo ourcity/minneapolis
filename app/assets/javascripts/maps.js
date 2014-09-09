@@ -22,6 +22,7 @@ OurCity.map = {
     if (layers) {
       this.discernLayers(layers);
     }
+    this.bindEvents(map);
   },
 
   discernLayers: function(layers) {
@@ -60,5 +61,11 @@ OurCity.map = {
   addFeatureLayer: function(layer) {
     console.log('addFeatureLayer', layer);
     L.esri.featureLayer(layer.source).addTo(map);
+  },
+
+  bindEvents: function(map) {
+    map.on('click', function(event) {
+      console.log('click', event);
+    });
   }
 };
