@@ -14,7 +14,9 @@ OurCity.geocoder = {
       address: address
     });
     jqxhr.done(function (data) {
-      console.log(data);
+      var member = data
+      var path = window.location + 'council_members/' + data.id
+      window.location = path;
     });
   }
 

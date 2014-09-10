@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140903032715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
   enable_extension "hstore"
 
   create_table "agenda_items", force: true do |t|
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20140903032715) do
     t.integer  "process_step_id"
     t.integer  "committee_id"
     t.integer  "council_member_id"
-    t.integer  "introducer_id"
   end
 
   add_index "agenda_items", ["committee_id"], name: "index_agenda_items_on_committee_id", using: :btree
@@ -110,14 +108,6 @@ ActiveRecord::Schema.define(version: 20140903032715) do
     t.integer  "agenda_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "spatial_ref_sys", id: false, force: true do |t|
-    t.integer "srid",                   null: false
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
   end
 
   create_table "subscriptions", force: true do |t|

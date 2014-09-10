@@ -1,4 +1,6 @@
 class Location < ActiveRecord::Base
+  include Geocodable
+
   belongs_to        :user
   before_validation :geocode
   after_validation  :setLonLat

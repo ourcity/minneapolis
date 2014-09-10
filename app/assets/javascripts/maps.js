@@ -59,13 +59,22 @@ OurCity.map = {
   },
 
   addFeatureLayer: function(layer) {
-    console.log('addFeatureLayer', layer);
     L.esri.featureLayer(layer.source).addTo(map);
   },
 
   bindEvents: function(map) {
     map.on('click', function(event) {
       console.log('click', event);
+      event.preventDefault();
+      var address = $('#geocode-form input').val();
+      var jqxhr = $.post('geocoder/search', {
+        latlng: event.latlng.lng + ',' + event.latlng.lat
+      });
+      jqxhr.done(function (data) {
+        console.log('data', data);
+        var path = window.location + 'council_members/' + data.id
+        window.location = path;
+      });
     });
   }
 };
