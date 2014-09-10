@@ -9,9 +9,7 @@ class User < ActiveRecord::Base
   scope :digest, -> { joins(:subscriptions).where('subscriptions.digest' => true) }
 
   def subscribe(subscribable, notify=false)
-    sub = self.subscriptions.create!(subscribable: subscribable, notify: notify)
-  rescue ActiveRecord::RecordInvalid => e
-    return sub
+    self.subscriptions.where(subscribable: subscribable).first_or_create(notify: notify)
   end
 
   def password_required?

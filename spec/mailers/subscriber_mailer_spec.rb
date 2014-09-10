@@ -11,7 +11,7 @@ RSpec.describe SubscriberMailer, :type => :mailer do
                                          committee:      committee,
                                          issue:          issue) }
   context 'quick_subscribe_welcome' do
-    subject { SubscriberMailer.quick_subscribe_welcome(user, subscription) }
+    subject { quick_subscribe_welcome }
     it 'should make a message' do
       expect(subject.subject).to eq "[OurCity] Welcome to OurCity (action required)"
       expect(subject.to).to eq [user.email]

@@ -22,7 +22,8 @@ class SubscriberMailer < ActionMailer::Base
   end
 
   def quick_subscribe_confirm(user, subscription)
-    @user = user
+    @user        = user
+    @subscription=subscription
     mail(to: user.email, subject: "[OurCity] OurCity Account Confirmation")
   end
 
