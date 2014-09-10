@@ -136,7 +136,7 @@ Map.create!({
     }, {
       feature: true,
       esri: true,
-      source: 'http://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/Wards2012/FeatureServer/0'
+      source: 'http://services.arcgis.com/afSMGVsC7QlRK1kZ/arcgis/rest/services/WARDS/FeatureServer/0'
     }]
   }
 });

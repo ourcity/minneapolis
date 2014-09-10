@@ -3,11 +3,16 @@ class GeocoderController < ApplicationController
 
   def search
     address   = params[:address] + ", Minneapolis, MN"
-    location  = Location.new(address: address)
+    latlng    = params[:latlng]
+    if address
+      location  = Location.new(address: address)
+      location.valid? # force the callbacks even for unsaved locations
+    elsif latlng
+      location  = Location.new(latitude: latlng.lat, longitude: latlng.lng)
+    end
+    ward = location.find_ward
 
-    location.valid? # force the callbacks even for unsaved locations
-
-    render json: location
+    render json: CouncilMember.find_by_ward(ward)
   end
 
 end
