@@ -62,13 +62,13 @@ class CouncilMembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_council_member
-      @council_member = CouncilMember.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_council_member
+    @council_member = CouncilMember.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def council_member_params
-      params.require(:council_member).permit(:ward, :first_name, :last_name, :committee_member_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def council_member_params
+    params.require(:council_member).permit(:ward, :first_name, :last_name, :committee_member_id)
+  end
 end

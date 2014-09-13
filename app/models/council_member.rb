@@ -1,11 +1,15 @@
 class CouncilMember < ActiveRecord::Base
   extend FriendlyId
+  include Notifiable
 
   has_many :agenda_items
   has_many :committee_members
   has_many :committees, through: :committee_members
   friendly_id :slug_candidates, use: :slugged
   has_many :subscriptions, as: :subscribable
+
+  validates :ward, presence: true
+  before_validation :generate_code, on: :create
 
   def full_name
     [first_name, last_name].join(' ')
@@ -31,5 +35,9 @@ class CouncilMember < ActiveRecord::Base
       [:first_name, :last_name],
       [:first_name, :last_name, :ward]
     ]
+  end
+
+  def generate_code
+    self.code||="WARD_#{ward}"
   end
 end

@@ -11,7 +11,8 @@ Map.delete_all
 # issue 1: open data
 open_data = Issue.create!(
   name: 'Open Data',
-  summary: 'Minneapolis Open Data initatives'
+  summary: 'Minneapolis Open Data initatives',
+  code: 'opendata'
 )
 
 def get_committee(committee_name)
@@ -34,7 +35,8 @@ open_data_1.report_links.create!(title: 'Open Data RCA',
 
 honeybees = Issue.create!(
   name: 'Honeybees',
-  summary: 'Activity involving keeping of honeybees in Minneapolis'
+  summary: 'Activity involving keeping of honeybees in Minneapolis',
+  code: 'bees'
 )
 
 honeybees_1 = honeybees.agenda_items.create!({

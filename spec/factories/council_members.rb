@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :council_member do
     sequence :ward do |n|
-      '0'
+      n
     end
     sequence :first_name do |n|
       "first_name_000"

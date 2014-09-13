@@ -6,5 +6,8 @@ FactoryGirl.define do
     comm_type 'Standing Committee'
     info_url 'http://google.com'
     slug 'goo'
+    sequence :code do |n|
+      "COMMITTEE_#{n}"
+    end
   end
 end
