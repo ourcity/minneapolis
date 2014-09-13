@@ -2,7 +2,8 @@ module Notifiable
   extend ActiveSupport::Concern
 
   included do
-    validates :code, presence: true, uniqueness: true
+    # this borks the csv import via rake db:seed
+    #validates :code, presence: true, uniqueness: true
 
     def notify(agenda_item)
       subscriptions.digest(false).find_each do |sub|
