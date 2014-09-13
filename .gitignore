@@ -20,3 +20,5 @@
 
 # Ignore dotenv file
 .env
+
+.DS_Store
