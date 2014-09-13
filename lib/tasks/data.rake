@@ -1,3 +1,5 @@
+include CsvSeeds
+
 namespace :data do 
   desc "add Committees and Council Members to DB"
   task committees: [:environment] do

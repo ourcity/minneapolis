@@ -1,14 +1,15 @@
-ward,first_name,last_name
-1,Kevin,Reich
-2,Cam,Gordon
-3,Jacob,Frey
-4,Barbara,Johnson
-5,Blong,Yang
-6,Abdi,Warsame
-7,Lisa,Goodman
-8,Elizabeth,Glidden
-9,Alondra,Cano
-10,Lisa,Bender
-11,John,Quincy
-12,Andrew,Johnson
-13,Linea,Palmisano
+id,ward,first_name,last_name,ward_url,image_url,email,phone,neighborhoods
+1,1,Kevin,Reich,http://www.minneapolismn.gov/ward1/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/kevin-reich.jpg,kevin.reich@minneapolismn.gov,(612) 673-2201,"Audubon Park, Columbia Park, Como, Holland, Logan Park, Marshall Terrace, Mid-City Industrial, Northeast Park, Waite Park, Windom Park, "
+2,2,Cam,Gordon,http://www.minneapolismn.gov/ward2/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/cam-gordon.jpg,cam.gordon@minneapolismn.gov,(612) 673-2202,"Cedar Riverside, Southeast Como, Cooper, Prospect Park / East River Road, Seward, "
+3,3,Jacob,Frey,http://www.minneapolismn.gov/ward3/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/jacob-frey.jpg,jacob.frey@minneapolismn.gov,(612) 673-2203,"Beltrami, Bottineau, Downtown West, Downtown East, North Loop, St. Anthony East, St. Anthony West, Sheridan, Marcy-Holmes, Nicollet Island-East Bank, North Loop, "
+4,4,Barbara,Johnson,http://www.minneapolismn.gov/ward4/index.htm,http://www.minneapolismn.gov/www/groups/public/@clerk/documents/webcontent/wcms1p-121860.jpg,barbara.johnson@minneapolismn.gov,(612) 673-2204,"Cleveland, Folwell, Jordan, Lind-Bohanon, Shingle Creek, Victory, Webber Camden"
+5,5,Blong,Yang,http://www.minneapolismn.gov/ward5/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/blong-yang.jpg,blong.yang@minneapolismn.gov,(612) 673-2205,"Harrison, Hawthorne, Jordan, Near North, North Loop, Sumner-Glenwood, Willard-Hay"
+6,6,Abdi,Warsame,http://www.minneapolismn.gov/ward6/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/adbi-warsame.jpg,abdi.warsame@minneapolismn.gov,(612) 673-2206,"Cedar Riverside, Elliot Park, Phillips West, Seward, Steven’s Square – Loring Heights, Ventura Village"
+7,7,Lisa,Goodman,http://www.minneapolismn.gov/ward7/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/lisa-goodman.jpg,lisa.goodman@minneapolismn.gov,(612) 673-2207,"Bryn Mawr, Cedar-Isles-Dean, Downtown Minneapolis, East Isles, Elliot Park, Kenwood-Isles, Loring Park, Lowry Hill"
+8,8,Elizabeth,Glidden,http://www.minneapolismn.gov/ward8/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/elizabeth-glidden.jpg,elizabeth.glidden@minneapolismn.gov,(612) 673-2208,"Bancroft, Bryant, Central, Field, Kingfield, Lyndale, Northrop, Regina"
+9,9,Alondra,Cano,http://www.minneapolismn.gov/ward9/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/alondra-cano.jpg,alondra.cano@minneapolismn.gov,(612) 673-2209,"Central, Corcoran, East Phillips, Longfellow, Midtown Phillips, Powderhorn Park"
+10,10,Lisa,Bender,http://www.minneapolismn.gov/ward10/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/wcms1p-122483.png,lisa.bender@minneapolismn.gov ,(612) 673-2210,"East Harriet, East Calhoun, Lowry Hill East, CARAG, Whittier"
+11,11,John,Quincy,http://www.minneapolismn.gov/ward11/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/john-quincy.jpg,john.quincy@minneapolismn.gov,(612) 673-2211,"Diamond Lake, Hale, Kingfield, Page, Northrop, Tangletown, Wenonah, Windom"
+12,12,Andrew,Johnson,http://www.minneapolismn.gov/ward12/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/andrew-johnson.jpg,andrew.johnson@minneapolismn.gov,(612) 673-2212,"Ericsson, Hiawatha, Howe, Keewaydin, Minnehaha, Morris Park, Standish"
+13,13,Linea,Palmisano,http://www.minneapolismn.gov/ward13/index.htm,http://www.minneapolismn.gov/www/groups/public/@council/documents/images/linea-palmisano.jpg,linea.palmisano@minneapolismn.gov,(612) 673-2213,"West Calhoun, Linden Hills, East Harriet, Fulton, Lynnhurst, Armatage, Kenny"
+14,,Betsy,Hodges,http://www.minneapolismn.gov/mayor/index.htm,http://www.minneapolismn.gov/www/groups/public/@mayor/documents/images/wcms1q-074430.jpg,betsy.hodges@minneapolismn.gov,(612) 673-2100,
