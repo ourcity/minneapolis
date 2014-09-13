@@ -61,4 +61,38 @@ class CsvSeeds
     end
   end
 
+  def self.import_agenda_items!
+    dir                = "data"
+    events_file = Rails.root.join(dir, "events.csv")
+
+    CSV.parse(File.read(events_file), headers: true) do |row|
+      event             = Event.where(id: row['id']).first_or_initialize
+      event.event_location  = row['event_location']
+      event.time  = row['time']
+      event.date = row['date']
+      event.agenda_url = row['agenda_url']
+      event.archive_status = row['archive_status']
+      event.committee_id = Committee.where(name: row['committee']).first.id
+      event.event_type = row['event_type']
+      event.save!
+
+      puts "Updated info for #{event.id}"
+    end
+
+    agenda_items_file = Rails.root.join(dir, "agenda_items.csv")
+
+    CSV.parse(File.read(agenda_items_file), headers: true) do |row|
+      agenda_item             = AgendaItem.where(id: row['id']).first_or_initialize
+      agenda_item.event_id  = row['event_id']
+      agenda_item.committee_id  = row['committee_id']
+      agenda_item.description = row['description']
+      agenda_item.action_text = row['action_text']
+      agenda_item.public_doc_url = row['public_doc_url']
+      agenda_item.issue_id = row['issue_id']
+      agenda_item.save!
+
+      puts "Updated info for #{agenda_item.id}"
+    end
+  end
+
 end
