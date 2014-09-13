@@ -8,6 +8,10 @@ class SmsUser < ActiveRecord::Base
     self.subscriptions.where(subscribable: subscribable(code)).first_or_create
   end
 
+  def unsubscribe(code)
+    self.subscriptions.where(subscribable: subscribable(code)).first.try(:destroy)
+  end
+
   protected
   def subscribable(code)
     for klass in Subscription::SUBSCRIBABLE_TYPES

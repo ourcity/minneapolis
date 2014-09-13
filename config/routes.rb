@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :maps
   resources :council_members
   resources :subscriptions, only: :create
+  resources :sms_subscriptions, only: :create
 
   resources :committees do
     resources :committee_members
