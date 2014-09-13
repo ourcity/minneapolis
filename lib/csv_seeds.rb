@@ -32,11 +32,8 @@ class CsvSeeds
       puts "Updated info for #{council_member.id}"
     end
 
-    committee_members_file = Rails.root.join(dir, "committee_members.csv")
-
-    CSV.parse(File.read(committee_members.file), headers: true) do |row|
+    CSV.parse(File.read(Rails.root.join(dir, "committee_members.csv")), headers: true) do |row|
       committee_member            = CommitteeMember.where(id: row['id']).first_or_initialize
-      committee_member.committee_member_id       = row['committee_member_id']
       committee_member.council_member_id = row['council_member_id']
       committee_member.chair  = row['chair']
       committee_member.vice_chair  = row['vice_chair']
