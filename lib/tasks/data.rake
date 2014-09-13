@@ -1,4 +1,6 @@
-namespace :data do 
+require 'csv_seeds'
+
+namespace :data do
   desc "add Committees and Council Members to DB"
   task committees: [:environment] do
     CsvSeeds.import_council_members_and_committees!
