@@ -11,7 +11,7 @@ RSpec.describe SubscriberMailer, :type => :mailer do
                                          committee:      committee,
                                          issue:          issue) }
   context 'quick_subscribe_welcome' do
-    subject { quick_subscribe_welcome }
+    subject { SubscriberMailer.quick_subscribe_welcome(user, subscription) }
     it 'should make a message' do
       expect(subject.subject).to eq "[OurCity] Welcome to OurCity (action required)"
       expect(subject.to).to eq [user.email]
@@ -40,7 +40,7 @@ RSpec.describe SubscriberMailer, :type => :mailer do
   end
 
   context 'agenda_digest' do
-    subject { SubscriberMailer.agenda_digest([agenda_item], user) }
+    subject { SubscriberMailer.agenda_digest(AgendaItem.all, user) }
     it 'should make a message' do
       expect(subject.subject).to eq "[OurCity] Agenda Item Digest - #{Date.today.to_formatted_s}"
       expect(subject.to).to eq [user.email]

@@ -1,6 +1,7 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
-  validates :user, presence: true
+  belongs_to :sms_user
+  validate :has_user?
   belongs_to :subscribable, polymorphic: true
   validates :subscribable, presence: true
   validates :user_id, :uniqueness => {:scope => [:subscribable_type, :subscribable_id]}
@@ -22,7 +23,12 @@ class Subscription < ActiveRecord::Base
   end
 
   def send_notification
+    return unless user.present?
     SubscriberMailer.quick_subscribe_welcome(user, self).deliver
+  end
+
+  def has_user?
+    sms_user.present? || user.present?
   end
 
 end

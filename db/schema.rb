@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909021245) do
+ActiveRecord::Schema.define(version: 20140913145548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",       limit: 150
+    t.string   "code",       limit: 20
   end
 
   create_table "council_members", force: true do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",       limit: 100
+    t.string   "code",       limit: 20
   end
 
   create_table "event_attendees", force: true do |t|
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.string   "summary",    limit: 1000
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "code",       limit: 20
   end
 
   create_table "locations", force: true do |t|
@@ -142,6 +145,12 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.datetime "updated_at"
   end
 
+  create_table "sms_users", force: true do |t|
+    t.string   "phone",      limit: 25
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"
     t.integer  "subscribable_id"
@@ -149,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "digest"
+    t.integer  "sms_user_id"
   end
 
   create_table "users", force: true do |t|

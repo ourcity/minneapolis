@@ -13,8 +13,10 @@ gem 'friendly_id'
 gem 'geocoder'
 gem 'jquery-rails'
 gem 'pg'
+gem 'phony_rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
+gem 'tms_client'
 
 group :development do
   gem 'guard-livereload', require: false

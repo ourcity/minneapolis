@@ -1,5 +1,6 @@
 class Issue < ActiveRecord::Base
   extend FriendlyId
+  include Notifiable
 
   has_many :agenda_items
   has_many :process_steps, through: :agenda_items

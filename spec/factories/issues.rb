@@ -5,5 +5,8 @@ FactoryGirl.define do
     name 'Internets'
     slug 'internets'
     summary 'rad'
+    sequence :code do |n|
+      "ISSUE_#{n}"
+    end
   end
 end
