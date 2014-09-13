@@ -18,6 +18,9 @@ RSpec.describe User, :type => :model do
       user.subscribe(FactoryGirl.create(:user))
       expect(user.subscriptions.count).to be 0
     end
+    it 'should get agenda items for digest subscriptions' do
+
+    end
   end
 end
 

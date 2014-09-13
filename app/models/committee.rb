@@ -8,4 +8,8 @@ class Committee < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  def display_name
+    "City Council Committee: #{self.name}"
+  end
+
 end

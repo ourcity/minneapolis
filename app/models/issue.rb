@@ -12,5 +12,9 @@ class Issue < ActiveRecord::Base
   validates :name, presence: true
   validates :summary, presence: true
 
+  def display_name
+    "Issue:  #{self.name}"
+  end
+
 
 end

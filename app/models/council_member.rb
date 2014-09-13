@@ -14,6 +14,10 @@ class CouncilMember < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
+  def display_name
+    "City Council Representative  #{self.name} (Ward #{self.ward})"
+  end
+
   def homepage
     "http://www.minneapolismn.gov/ward#{self.ward}/index.htm"
   end
@@ -23,12 +27,12 @@ class CouncilMember < ActiveRecord::Base
     "http://www.minneapolismn.gov/www/groups/public/@council/documents/images/#{first_name.downcase.gsub('abdi', 'adbi')}-#{last_name.downcase}.jpg"
   end
 
-   # Try building a slug based on the following fields in
-   # increasing order of specificity.
-   def slug_candidates
-     [
-       [:first_name, :last_name],
-       [:first_name, :last_name, :ward]
-     ]
-   end
+  # Try building a slug based on the following fields in
+  # increasing order of specificity.
+  def slug_candidates
+    [
+      [:first_name, :last_name],
+      [:first_name, :last_name, :ward]
+    ]
+  end
 end

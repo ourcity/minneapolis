@@ -76,6 +76,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     formatador (0.2.5)
     friendly_id (5.0.4)
@@ -104,6 +106,8 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    libnotify (0.8.3)
+      ffi (>= 1.0.11)
     listen (2.7.9)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -117,6 +121,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -242,12 +247,14 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  faraday
   friendly_id
   geocoder
   guard-livereload
   guard-rspec
   jquery-rails
   launchy
+  libnotify
   pg
   poltergeist
   pry-rails

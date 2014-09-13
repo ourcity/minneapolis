@@ -3,12 +3,12 @@
 FactoryGirl.define do
   factory :user do
     sequence :email do |n|
-        "person#{n}@example.com"
+      "person#{n}@example.com"
     end
     first_name 'test'
     last_name 'user'
     street '123 anywhere'
-        state 'MN'
+    state 'MN'
     zip '55407'
     password 'hiiiiiiii'
   end

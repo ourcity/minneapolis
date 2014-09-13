@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20140909021245) do
     t.string   "subscribable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "digest"
   end
 
   create_table "users", force: true do |t|
