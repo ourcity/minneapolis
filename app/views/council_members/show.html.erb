@@ -23,7 +23,7 @@
     <p>
       <strong>Committees:</strong>
       <% @council_member.committee_members.each do |committee_member| %>
-      <%= Committee.find(committee_member.committee.id).name %>
+        <%= Committee.find(committee_member.committee_id).name %>
       <% end %>
     </p>
   </div>

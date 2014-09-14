@@ -35,6 +35,7 @@ class CsvSeeds
     CSV.parse(File.read(Rails.root.join(dir, "committee_members.csv")), headers: true) do |row|
       committee_member            = CommitteeMember.where(id: row['id']).first_or_initialize
       committee_member.council_member_id = row['council_member_id']
+      committee_member.committee_id = row['committee_id']
       committee_member.chair  = row['chair']
       committee_member.vice_chair  = row['vice_chair']
       committee_member.save!
