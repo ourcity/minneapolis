@@ -1,4 +1,7 @@
 class Subscription < ActiveRecord::Base
+
+  SMS_STOP_WORDS = %w(stop stopall unsubscribe cancel end quit)
+
   belongs_to :user
   belongs_to :sms_user
   validate :has_user?
@@ -9,6 +12,8 @@ class Subscription < ActiveRecord::Base
   delegate :display_name, to: :subscribable
 
   scope :digest, -> (digested) { where(digest: digested) }
+  scope :sms, -> { where('sms_user_id IS NOT NULL') }
+  scope :email, -> { where('user_id IS NOT NULL') }
 
   SUBSCRIBABLE_TYPES = [Issue, Committee, CouncilMember]
 

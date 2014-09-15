@@ -2,35 +2,35 @@ module Notifiable
   extend ActiveSupport::Concern
 
   included do
-    # this borks the csv import via rake db:seed
-    #validates :code, presence: true, uniqueness: true
+    before_validation :generate_code
+    before_validation :downcase_code
+    validates :code, presence: true, uniqueness: true
 
-    def notify(agenda_item)
-      subscriptions.digest(false).find_each do |sub|
-        SubscriberMailer.agenda_item_update(self, agenda_item, sub.user).deliver
+    def email_notify(job_runtime)
+      return unless (items = agenda_items.since(job_runtime)).any?
+      subscriptions.email.digest(false).includes(:user).find_each do |sub|
+        SubscriberMailer.agenda_item_update(self, items, sub.user).deliver
       end
     end
 
-    after_validation :sync_sms_keyword
+    def sms_notify(agenda_item)
+      return unless Rails.configuration.twilio_account_sid
+      client = Twilio::REST::Client.new(Rails.cofiguration.twilio_sid, Rails.configuration.twilio_auth_token)
+      subscriptions.sms.includes(:sms_user).find_each do |sub|
+        client.account.messages.create(
+            from: Rails.configuration.twilio_number,
+            to: sms_user.phone,
+            body: "Something happened with #{self.display_name}"
+          )
+      end
+    end
 
-    def sync_sms_keyword
-      return unless Rails.configuration.tms_token.present? && code_changed?
+    def downcase_code
+      self.code = self.code.upcase
+    end
 
-      logger.info("syncing #{self.display_name} with TMS")
-
-      client  = TMS::Client.new(Rails.configuration.tms_token,
-          api_root: Rails.configuration.tms_root,
-          logger: self.logger)
-      keyword = client.keywords.build(name: self.code)
-      keyword.post!
-
-      command = keyword.commands.build(
-          name:         "subscribe to #{self.code}",
-          params:       {url: Rails.application.routes.url_helpers.sms_subscriptions_url, http_method: "post"},
-          command_type: :forward)
-      command.post!
-    rescue TMS::Errors::InvalidPost => e
-      logger.warn("Didn't create keyword for #{self.to_s}: #{e.message}")
+    def generate_code
+      #blah
     end
   end
 

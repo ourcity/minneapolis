@@ -10,8 +10,6 @@ class CouncilMember < ActiveRecord::Base
   friendly_id :slug_candidates, use: :slugged
   has_many :subscriptions, as: :subscribable
 
-  before_validation :generate_code, on: :create
-
   def full_name
     [first_name, last_name].join(' ')
   end
@@ -39,6 +37,7 @@ class CouncilMember < ActiveRecord::Base
   end
 
   def generate_code
+    return if self.code.present?
     if self.ward
       self.code||="WARD_#{ward}"
     else

@@ -33,5 +33,11 @@ module Minneapolis
     # GovDelivery Transactional Messaging Service
     config.tms_root  = ENV['TMS_ROOT']
     config.tms_token = ENV['TMS_TOKEN']
+
+    config.twilio_account_sid = ENV['TWILIO_ACCOUNT_SID']
+    config.twilio_token       = ENV['TWILIO_TOKEN']
+    config.twilio_number      = ENV['TWILIO_NUMBER']
+
+
   end
 end
