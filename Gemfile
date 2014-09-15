@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bower-rails'
 gem 'devise'
 gem 'faraday'
+gem "font-awesome-rails"
 gem 'friendly_id'
 gem 'geocoder'
 gem 'jquery-rails'
