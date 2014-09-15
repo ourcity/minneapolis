@@ -29,5 +29,9 @@ module Minneapolis
 
     # we're in Minnesota, fools
     config.time_zone = 'America/Chicago'
+
+    # GovDelivery Transactional Messaging Service
+    config.tms_root  = ENV['TMS_ROOT']
+    config.tms_token = ENV['TMS_TOKEN']
   end
 end

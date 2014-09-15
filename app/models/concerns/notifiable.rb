@@ -11,20 +11,24 @@ module Notifiable
       end
     end
 
-    def create_tms_keyword
-      return unless Rails.configuration.tms_api_key
+    after_validation :sync_sms_keyword
 
-      client = TMS::Client.new(Rails.configuration.tms_api_key, api_root: Rails.configuration.tms_api_root)
+    def sync_sms_keyword
+      return unless Rails.configuration.tms_token.present? && code_changed?
 
+      logger.info("syncing #{self.display_name} with TMS")
+
+      client  = TMS::Client.new(Rails.configuration.tms_token,
+          api_root: Rails.configuration.tms_root,
+          logger: self.logger)
       keyword = client.keywords.build(name: self.code)
-      keyword.post
-
+      keyword.post!
 
       command = keyword.commands.build(
           name:         "subscribe to #{self.code}",
-          params:       {url: Rails.application.routes.sms_subscription_url, http_method: "post"},
+          params:       {url: Rails.application.routes.url_helpers.sms_subscriptions_url, http_method: "post"},
           command_type: :forward)
-      command.post
+      command.post!
     rescue TMS::Errors::InvalidPost => e
       logger.warn("Didn't create keyword for #{self.to_s}: #{e.message}")
     end

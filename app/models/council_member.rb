@@ -17,7 +17,7 @@ class CouncilMember < ActiveRecord::Base
   end
 
   def display_name
-    "City Council Representative  #{self.name} (Ward #{self.ward})"
+    "City Council Representative  #{self.full_name} (Ward #{self.ward})"
   end
 
   def homepage
