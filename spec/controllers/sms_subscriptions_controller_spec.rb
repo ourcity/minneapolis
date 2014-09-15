@@ -17,13 +17,15 @@ RSpec.describe SmsSubscriptionsController, :type => :controller do
   end
 
   context 'unsubscribing' do
-    it 'should work' do
-      post :create, {
-          'From' => '+16125551234',
-          "Body" => "uNsuBscribe #{issue.code}"
-        }
-      expect(response.body).to eq "You will no longer receive updates from OurCity."
-      expect(SmsUser.where(phone: '16125551234').first).to be_nil
+    Subscription::SMS_STOP_WORDS.each do |word|
+      it "should happen when user texts #{word.upcase}" do
+        post :create, {
+            'From' => '+16125551234',
+            "Body" => "#{word.upcase} #{issue.code}"
+          }
+        expect(response.body).to eq "You will no longer receive updates from OurCity."
+        expect(SmsUser.where(phone: '16125551234').first).to be_nil
+      end
     end
   end
 
