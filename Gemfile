@@ -16,7 +16,7 @@ gem 'pg'
 gem 'phony_rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'tms_client', git: 'git@github.com:govdelivery/tms_client.git'
+gem 'tms_client', git: 'git://github.com/govdelivery/tms_client.git'
 
 group :development do
   gem 'guard-livereload', require: false

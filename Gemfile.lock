@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:govdelivery/tms_client.git
+  remote: git://github.com/govdelivery/tms_client.git
   revision: 434c3e4444735cdd09f4097a548013c055b74f4e
   specs:
     tms_client (0.5.2)
