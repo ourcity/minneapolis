@@ -1,6 +1,7 @@
 require 'csv_seeds'
 CsvSeeds.import_council_members_and_committees!
 CsvSeeds.import_process_steps!
+CsvSeeds.import_agenda_items!
 
 # clear the palette
 Issue.delete_all

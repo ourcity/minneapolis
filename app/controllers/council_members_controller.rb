@@ -10,6 +10,10 @@ class CouncilMembersController < ApplicationController
   # GET /council_members/1
   # GET /council_members/1.json
   def show
+    @committees = []
+    @council_member.committee_members.each do |committee_member|
+      @committees << Committee.find(committee_member.committee_id)
+    end
   end
 
   # GET /council_members/new
