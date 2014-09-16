@@ -1,4 +1,6 @@
 class SmsSubscriptionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before :verify_sid
 
   rescue_from ActiveRecord::RecordInvalid do
     render plain: "Sorry, couldn't subscribe you to OurCity items."
@@ -10,7 +12,6 @@ class SmsSubscriptionsController < ApplicationController
     sms_user = SmsUser.where(phone: Phony.normalize(params['From'])).first_or_create!
     codes    = sms_body.split(' ')
 
-
     codes.each { |code| sms_user.subscribe(code) }
 
     if (count = sms_user.subscriptions.count) > 0
@@ -21,6 +22,9 @@ class SmsSubscriptionsController < ApplicationController
   end
 
   protected
+  def verify_sid
+    render nothing: true, status: 400 unless params['AccountSid'] == Rails.configuration.twilio_account_sid
+  end
 
   def sms_body
     @sms_body ||= params['Body'].downcase.strip
