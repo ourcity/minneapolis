@@ -3,6 +3,7 @@
   <br />
   <small></small>
 </h1>
+<%= render partial: "shared/subscription_form", locals: {subscribable: @committee} %>
 <div class="row">
   <div class="col-md-6">
 		<p>
@@ -34,7 +35,6 @@
 	</div>
 </div>
 <hr>
-<%= render partial: "shared/subscription_form", locals: {subscribable: @committee} %>
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |
 <%= link_to 'Back', committees_path %>

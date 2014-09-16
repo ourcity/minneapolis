@@ -20,8 +20,8 @@
     <% end -%>
 
     <%- if subscribable.code && Rails.configuration.twilio_number %>
-        <h5 class="panel-title"> Subscribe for SMS updates! Text <%= subscribable.code %>
-          to <%= Phony.formatted(Phony.normalize(Rails.configuration.twilio_number)) %> </h4>
+        <p> Subscribe for SMS updates! Text <strong><%= subscribable.code %></strong>
+          to <strong><%= Phony.formatted(Phony.normalize(Rails.configuration.twilio_number)) %></strong>.</p>
     <% end %>
   </div>
 </div>
