@@ -21,7 +21,7 @@ RSpec.describe SubscriberMailer, :type => :mailer do
   # end
 
   context 'quick_subscribe_confirm' do
-    subject { SubscriberMailer.quick_subscribe_confirm(user, subscription) }
+    subject { SubscriberMailer.quick_subscribe_confirm(user) }
     it 'should make a message' do
       expect(subject.subject).to eq "[OurCity] OurCity Account Confirmation"
       expect(subject.to).to eq [user.email]

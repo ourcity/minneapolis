@@ -6,7 +6,7 @@
       <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
       <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
     </div>
-    <h4 class="panel-title">Get Email Updates for this <%= subscribable.class.name.titleize %> </h4>
+    <h5 class="panel-title">Get Email Updates for this <%= subscribable.class.name.titleize %> </h4>
   </div>
   <div class="panel-body">
     <%= form_tag(subscriptions_path, remote: true) do -%>
@@ -18,5 +18,10 @@
           </div>
         </form>
     <% end -%>
+
+    <%- if subscribable.code && Rails.configuration.twilio_number %>
+        <h5 class="panel-title"> Subscribe for SMS updates! Text <%= subscribable.code %>
+          to <%= Phony.formatted(Phony.normalize(Rails.configuration.twilio_number)) %> </h4>
+    <% end %>
   </div>
 </div>

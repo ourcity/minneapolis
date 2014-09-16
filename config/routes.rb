@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   resources :events
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {confirmations: "confirmations"}
   resources :users
 
-  root  'pages#index'
-  get   'pages/about'
-  get   'pages/process_steps'
-  get   'pages/calendar'
-  post  'geocoder/search'
+  root 'pages#index'
+  get 'pages/about'
+  get 'pages/process_steps'
+  get 'pages/calendar'
+  post 'geocoder/search'
 
   resources :issues
   resources :maps

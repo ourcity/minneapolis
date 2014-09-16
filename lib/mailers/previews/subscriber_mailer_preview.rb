@@ -2,7 +2,7 @@ class SubscriberMailerPreview < ActionMailer::Preview
 
   def quick_subscribe_confirm
     @user=User.first
-    SubscriberMailer.quick_subscribe_confirm(@user, @user.subscribe(Issue.first))
+    SubscriberMailer.quick_subscribe_confirm(@user)
   end
 
   def agenda_update

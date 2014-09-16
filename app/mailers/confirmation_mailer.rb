@@ -1,4 +1,6 @@
 class ConfirmationMailer < Devise::Mailer
+  layout "subscriber_mailer"
+
   default from: "from@example.com"
 
   def confirmation_instructions(user, token, opts={})

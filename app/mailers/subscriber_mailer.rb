@@ -14,9 +14,8 @@ class SubscriberMailer < ActionMailer::Base
     mail(to: user.email, subject: "[OurCity] Agenda Item Digest - #{Date.today.to_formatted_s}")
   end
 
-  def quick_subscribe_confirm(user, subscription)
+  def quick_subscribe_confirm(user)
     @user        = user
-    @subscription=subscription
     mail(to: user.email, subject: "[OurCity] OurCity Account Confirmation")
   end
 
