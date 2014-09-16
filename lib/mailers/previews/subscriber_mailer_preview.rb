@@ -1,10 +1,5 @@
 class SubscriberMailerPreview < ActionMailer::Preview
 
-  def quick_subscribe_welcome
-    @user=User.first
-    SubscriberMailer.quick_subscribe_welcome(@user, @user.subscribe(Issue.first))
-  end
-
   def quick_subscribe_confirm
     @user=User.first
     SubscriberMailer.quick_subscribe_confirm(@user, @user.subscribe(Issue.first))

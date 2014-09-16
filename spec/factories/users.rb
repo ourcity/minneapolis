@@ -12,4 +12,9 @@ FactoryGirl.define do
     zip '55407'
     password 'hiiiiiiii'
   end
+
+  factory :confirmed_user, parent: :user do |f|
+    before(:create) { |user| user.skip_confirmation_notification! }
+    after(:create) { |user| user.confirm! }
+  end
 end

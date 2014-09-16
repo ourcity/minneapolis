@@ -4,10 +4,11 @@ class Subscription < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :sms_user
-  validate :has_user?
+
   belongs_to :subscribable, polymorphic: true
   validates :subscribable, presence: true
   validates :user_id, :uniqueness => {:scope => [:subscribable_type, :subscribable_id]}
+  validates :sms_user_id, :uniqueness => {:scope => [:subscribable_type, :subscribable_id]}
   attr_accessor :notify
   delegate :display_name, to: :subscribable
 
@@ -17,6 +18,7 @@ class Subscription < ActiveRecord::Base
 
   SUBSCRIBABLE_TYPES = [Issue, Committee, CouncilMember]
 
+  validate :has_user?
   validate :check_subscribable_type
 
   after_create :send_notification, if: :notify
@@ -28,12 +30,12 @@ class Subscription < ActiveRecord::Base
   end
 
   def send_notification
-    return unless user.present?
-    SubscriberMailer.quick_subscribe_welcome(user, self).deliver
+    return unless user.try(:confirmed?)
+    SubscriberMailer.quick_subscribe_confirm(user, self).deliver
   end
 
   def has_user?
-    sms_user.present? || user.present?
+    (sms_user || user).try(:persisted?)
   end
 
 end

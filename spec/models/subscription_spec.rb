@@ -2,15 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Subscription, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
+  let(:confirmed_user) { FactoryGirl.create(:confirmed_user) }
   let(:sms_user) { FactoryGirl.create(:sms_user) }
   let(:subscription) { user.subscribe(issue) }
   let(:issue) { FactoryGirl.create(:issue) }
   let(:committee) { FactoryGirl.create(:committee) }
   let(:council_member) { FactoryGirl.create(:council_member) }
 
-  context 'an email user' do
+  context 'an unconfirmed user' do
     context 'subscribing to something with notify: true' do
-      it 'should send a message' do
+      it 'should send a confirmation challenge' do
         cnt = ActionMailer::Base.deliveries.length
         user.subscribe(issue, true)
         expect(ActionMailer::Base.deliveries.length).to eq cnt+1
@@ -18,9 +19,27 @@ RSpec.describe Subscription, :type => :model do
     end
 
     context 'subscribing to something with notify: false' do
-      it 'should send a message' do
+      it 'should still send a confirmation challengemessage' do
         cnt = ActionMailer::Base.deliveries.length
         user.subscribe(issue, false)
+        expect(ActionMailer::Base.deliveries.length).to eq cnt+1
+      end
+    end
+  end
+
+  context 'a confirmed user' do
+    context 'subscribing to something with notify: true' do
+      it 'should send a message' do
+        cnt = ActionMailer::Base.deliveries.length
+        confirmed_user.subscribe(issue, true)
+        expect(ActionMailer::Base.deliveries.length).to eq cnt+1
+      end
+    end
+
+    context 'subscribing to something with notify: false' do
+      it 'should send a message' do
+        cnt = ActionMailer::Base.deliveries.length
+        confirmed_user.subscribe(issue, false)
         expect(ActionMailer::Base.deliveries.length).to eq cnt
       end
     end

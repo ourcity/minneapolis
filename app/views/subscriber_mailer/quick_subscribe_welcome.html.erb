@@ -7,7 +7,7 @@
 
 <% content_for :call_to_action do %>
 
-    <p>Please <%= link_to("confirm that you wish to receive OurCity updates at this email address", '#') %>.
+    <p>Please <%= link_to("confirm that you wish to receive OurCity updates at this email address", confirmation_url(@user, confirmation_token: @token)) %>.
       You won't receive updates until we're sure you want to get email from us,
       so <%= link_to('confirm your email now! »', "#") %></p>
 

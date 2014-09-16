@@ -1,10 +1,10 @@
 class SubscriberMailer < ActionMailer::Base
-  default from: "noreply@ourcity.com"
+  default from: "ourcitymn@gmail.com"
 
   def agenda_update(notifiable, agenda_items, user)
-    @notifiable  = notifiable
+    @notifiable   = notifiable
     @agenda_items = agenda_items
-    @user        = user
+    @user         = user
     mail(to: user.email, subject: '[OurCity] New Agenda Item Posted')
   end
 
@@ -12,13 +12,6 @@ class SubscriberMailer < ActionMailer::Base
     @agenda_items = agenda_items
     @user         = user
     mail(to: user.email, subject: "[OurCity] Agenda Item Digest - #{Date.today.to_formatted_s}")
-  end
-
-  def quick_subscribe_welcome(user, subscription)
-    @user              = user
-    @subscription      = subscription
-    @subscription_desc = subscription.display_name
-    mail(to: user.email, subject: "[OurCity] Welcome to OurCity (action required)")
   end
 
   def quick_subscribe_confirm(user, subscription)

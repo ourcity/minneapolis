@@ -29,4 +29,6 @@ Map.create!({
 });
 
 
-User.create!(email: 'ben@thesubstars.com', first_name: 'Ben', last_name: 'O')
+user = User.new(email: 'ben@thesubstars.com', first_name: 'Ben', last_name: 'O')
+user.skip_confirmation!
+user.save!
