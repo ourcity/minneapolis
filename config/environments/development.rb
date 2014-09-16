@@ -1,7 +1,6 @@
 Rails.application.configure do
-  routes.default_url_options          = {host: "localhost", protocol: 'http', port: 3000}
-  config.action_controller.asset_host = 'http://localhost:3000'
-  config.action_mailer.asset_host     = config.action_controller.asset_host
+  routes.default_url_options      = {host: "localhost", protocol: 'http', port: 3000}
+  config.action_mailer.asset_host = 'http://localhost:3000'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

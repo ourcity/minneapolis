@@ -38,11 +38,15 @@ module Minneapolis
     config.twilio_token       = ENV['TWILIO_TOKEN']
     config.twilio_number      = ENV['TWILIO_NUMBER']
 
-    config.action_mailer.delivery_method          = :govdelivery_tms
-    config.action_mailer.govdelivery_tms_settings = {
-      auth_token: config.tms_token,
-      api_root: config.tms_root
-    }
+    if config.tms_token.blank?
+      config.action_mailer.delivery_method = :file
+    else
+      config.action_mailer.delivery_method          = :govdelivery_tms
+      config.action_mailer.govdelivery_tms_settings = {
+        auth_token: config.tms_token,
+        api_root: config.tms_root
+      }
+    end
 
 
   end

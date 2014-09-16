@@ -23,3 +23,14 @@
 
 // pseudo-global Application namespace
 var OurCity = {};
+
+$(document).ready(function () {
+  $("form.subscribe_form").
+    on('ajax:success', function (e, data, status, xhr) {
+      $(this).replace(xhr.responseText);
+    }).
+    on('ajax:error', function (e, data, status, xhr) {
+      alert('Sorry, something went wrong. Please try again later!');
+    }
+  )
+});

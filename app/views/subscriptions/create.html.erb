@@ -1,0 +1,6 @@
+<h6>Thanks for signing up!</h6>
+<%- if @user.confirmed? %>
+    <p>You're all set to receive updates from <%= @subscription.subscribable.display_name %>.</p>
+<%- else %>
+    <p>You'll get an email shortly with instructions on how to confirm your email address</p>
+<% end %>
