@@ -1,14 +1,22 @@
 <h1>OurCity Email Confirmation</h1>
 
-<p class="lead">You're good to go!</p>
+<p class="lead">Subscription confirmed!</p>
 
-<p>You're receiving updates for the following things:</p>
+<%- if @subscription %>
+    <p>
+      <%= "You will now receive updates for #{@subscription.subscribable.display_name}." %>
+    </p>
+<% end %>
 
-<ul>
-  <% for subscription in @user.subscriptions %>
-      <li><%= subscription.subscribable.display_name %></li>
-  <% end %>
-</ul>
+<%- if @user.subscriptions.count>1 || @subscription.blank? %>
+    <p>You're receiving updates for the following items: </p>
+
+    <ul>
+      <% for subscription in @user.subscriptions %>
+          <li><%= subscription.subscribable.display_name %></li>
+      <% end %>
+    </ul>
+<% end %>
 
 <% content_for :call_to_action do %>
     <p>Use your OurCity account to manage subscriptions and set a password.

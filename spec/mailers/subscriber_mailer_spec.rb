@@ -26,7 +26,30 @@ RSpec.describe SubscriberMailer, :type => :mailer do
       expect(subject.subject).to eq "[OurCity] OurCity Account Confirmation"
       expect(subject.to).to eq [user.email]
       expect(subject.from).to eql(['ourcitymn@gmail.com'])
-      expect(subject.body.encoded).to match("You're receiving updates for the following things:")
+      expect(subject.body.encoded).to match("You're receiving updates for the following items:")
+    end
+  end
+
+  context 'quick_subscribe_confirm with one subscription' do
+    subject { SubscriberMailer.quick_subscribe_confirm(user, user.subscribe(issue, false)) }
+    it 'should make a message' do
+      expect(subject.subject).to eq "[OurCity] OurCity Account Confirmation"
+      expect(subject.to).to eq [user.email]
+      expect(subject.from).to eql(['ourcitymn@gmail.com'])
+      expect(subject.body.encoded).to match("You will now receive updates")
+      expect(subject.body.encoded).to_not match("You're receiving updates for the following items:")
+    end
+  end
+
+  context 'quick_subscribe_confirm with an existing subscription' do
+    before { user.subscribe(committee, false) }
+    subject { SubscriberMailer.quick_subscribe_confirm(user, user.subscribe(issue, false)) }
+    it 'should make a message' do
+      expect(subject.subject).to eq "[OurCity] OurCity Account Confirmation"
+      expect(subject.to).to eq [user.email]
+      expect(subject.from).to eql(['ourcitymn@gmail.com'])
+      expect(subject.body.encoded).to match("You will now receive updates")
+      expect(subject.body.encoded).to match("You're receiving updates for the following items:")
     end
   end
 
