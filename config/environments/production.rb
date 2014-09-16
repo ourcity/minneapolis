@@ -1,7 +1,6 @@
 Rails.application.configure do
   #routes.default_url_options          = {host: "ourcity.heroku.com", protocol: 'https'}
   #config.action_controller.asset_host = 'https://ourcity.heroku.com'
-  config.action_mailer.asset_host     = config.action_controller.asset_host
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
