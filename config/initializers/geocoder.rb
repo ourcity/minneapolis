@@ -1,6 +1,13 @@
 Geocoder.configure(
+  #:lookup => :nominatim,
+  #:http_headers => {
+    #"User-Agent" => "OurCity, www.ourcity.mn, ourcitymn@gmail.com"
+  #}
+
   :lookup => :google,
-  :api_key => ENV['GOOGLE_GEOCODER_KEY']
+  :api_key => ENV['GOOGLE_GEOCODER_KEY'],
+  :use_https => true
+
   # geocoding options
   # :timeout      => 3,           # geocoding service timeout (secs)
   # :lookup       => :google,     # name of geocoding service (symbol)
