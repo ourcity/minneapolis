@@ -1,7 +1,9 @@
 class SubscriptionsController < ApplicationController
+
   def create
     @user = User.where(email: params[:email]).first_or_create
     @subscription = @user.subscribe(subscribable, :notify) if @user.persisted?
+    render layout: false
   end
 
   protected
