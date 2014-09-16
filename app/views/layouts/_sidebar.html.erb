@@ -60,17 +60,9 @@
 				</ul>
 			</li>
 			<li><%= link_to "<i class='fa fa-calendar'></i> <span>Calendar</span>".html_safe, events_path %></li>
-			<li class="has-sub">
-				<a href="javascript:;">
-				    <i class="fa fa-cogs"></i>
-				    <b class="caret pull-right"></b>
-				    <span>About the Process</span>
-				</a>
-				<ul class="sub-menu">
-					<li><%= link_to "About the Process", pages_process_steps_path %></li>
-				</ul>
+			<li><%= link_to "<i class='fa fa-cogs'></i><span>About the Process</span>".html_safe, pages_process_steps_path %>
 			</li>
-			<li><%= link_to "<i class='fa fa-camera'></i><span>About Our City</span>".html_safe, pages_about_path %></li>
+			<li><%= link_to "<i class='fa fa-camera'></i><span>About Our City</span>".html_safe, pages_about_path %>
 			</li>
 	        <!-- begin sidebar minify button -->
 			<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>

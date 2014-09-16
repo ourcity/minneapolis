@@ -1,7 +1,4 @@
-<p>
-  <strong>Name:</strong>
-  <%= @committee.name %>
-</p>
+<h1><%= @committee.name %> Committee</h1>
 
 <p>
   <strong>Type:</strong>
@@ -9,11 +6,10 @@
 </p>
 
 <p>
-  <strong>Info url:</strong>
-  <%= @committee.info_url %>
+  <strong>More Info:</strong>
+  <%= link_to "Minneapolis City Council Committee Info Page", @committee.info_url %>
 </p>
 
-< render partial: "shared/timeline", locals: {agenda_items: @committee.agenda_items.timeline} %>
 <%= render partial: "shared/subscription_form", locals: {subscribable: @committee} %>
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |

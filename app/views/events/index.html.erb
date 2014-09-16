@@ -1,7 +1,5 @@
-<h1>Meetings and Events</h1>
-
 <!-- begin page-header -->
-<h1 class="page-header">Calendar <small>header small text goes here...</small></h1>
+<h1 class="page-header">Calendar <small>Coming Soon</small></h1>
 <!-- end page-header -->
 <!-- begin panel -->
 <div class="panel panel-inverse">
@@ -18,26 +16,19 @@
     <div class="vertical-box">
       <div class="vertical-column p-15 bg-silver width-sm">
         <div id="external-events" class="calendar-event width-sm">
-          <h4 class=" m-b-20">Draggable Events</h4>
-          <div class="external-event bg-purple" data-bg="bg-purple" data-title="Discussion" data-media="<i class='fa fa-comments'></i>" data-desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-              <h5><i class="fa fa-comments fa-lg fa-fw"></i> Discussion</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h4 class=" m-b-20">Events</h4>
+          <div class="external-event bg-purple" data-bg="bg-purple" data-title="" data-media="<i class='fa fa-comments'></i>" data-desc="">
+              
           </div>
-          <div class="external-event bg-blue" data-bg="bg-blue" data-title="Dinner" data-media="<i class='fa fa-cutlery'></i>" data-desc="Cum sociis natoque penatibus et magnis dis parturient montes."> 
-              <h5><i class="fa fa-cutlery fa-lg fa-fw"></i> Dinner</h5>
-              <p>Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+          <div class="external-event bg-blue" data-bg="bg-blue" data-title="" data-media="<i class='fa fa-cutlery'></i>" data-desc=""> 
+              
           </div>
-          <div class="external-event bg-green" data-bg="bg-green" data-title="Brainstorming" data-media="<i class='fa fa-lightbulb-o'></i>" data-desc="Mauris tristique massa eu venenatis semper. Phasellus a nibh nisi.">
-              <h5><i class="fa fa-lightbulb-o fa-lg fa-fw"></i> Brainstorming</h5>
-              <p>Mauris tristique massa eu venenatis semper. Phasellus a nibh nisi.</p>
+          <div class="external-event bg-green" data-bg="bg-green" data-title="" data-media="<i class='fa fa-lightbulb-o'></i>" data-desc="">
+              
           </div>
-          <div class="external-event bg-orange" data-bg="bg-orange" data-title="Performance Rating" data-media="<i class='fa fa-tasks'></i>" data-desc="Class aptent taciti sociosqu ad litora torquent per conubia nostra.">
-               <h5><i class="fa fa-tasks fa-lg fa-fw"></i> Performance Rating</h5>
-              <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+          <div class="external-event bg-orange" data-bg="bg-orange" data-title="" data-media="<i class='fa fa-tasks'></i>" data-desc="">
           </div>
-          <div class="external-event bg-red" data-bg="bg-red" data-title="Video Shooting" data-media="<i class='fa fa-video-camera'></i>" data-desc="Donec ligula nisi, tempus eu egestas id, auctor sit amet velit.">
-              <h5><i class="fa fa-video-camera fa-lg fa-fw"></i> Video Shooting</h5>
-              <p>Donec ligula nisi, tempus eu egestas id, auctor sit amet velit.</p>
+          <div class="external-event bg-red" data-bg="bg-red" data-title="" data-media="<i class='fa fa-video-camera'></i>" data-desc="">
           </div>
           <div class="checkbox">
               <input type="checkbox" id="drop-remove" />
@@ -50,50 +41,6 @@
   </div>
 </div>
 <!-- end panel -->
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Agenda url</th>
-      <th>Archive status</th>
-      <th>Committee</th>
-      <th>Event type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.agenda_url %></td>
-        <td><%= event.archive_status %></td>
-        <td><%= event.committee %></td>
-        <td><%= event.event_type %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
-
-
 </div>
 <!-- end #content -->
-
-<script>
-$(document).ready(function() {
-  Calendar.init();
-  });
-</script>
-
-
-
 
