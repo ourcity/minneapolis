@@ -31,7 +31,7 @@ RSpec.describe SubscriberMailer, :type => :mailer do
   end
 
   context 'agenda_update' do
-    subject { SubscriberMailer.agenda_update(issue, agenda_item, user) }
+    subject { SubscriberMailer.agenda_update(issue, AgendaItem.all, user) }
     it 'should make a message' do
       expect(subject.subject).to eq "[OurCity] New Agenda Item Posted"
       expect(subject.to).to eq [user.email]

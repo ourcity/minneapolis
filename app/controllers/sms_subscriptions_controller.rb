@@ -1,47 +1,38 @@
 class SmsSubscriptionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before_filter :verify_sid
 
-  def create
-    @user = SmsUser.where(phone: params[:from]).first_or_initialize
-    if @user.subscribe(params[:body])
-      render nothing: true, status: 204
-    else
-      render json: {error: @user.errors.full_messages}, status: 422
-    end
-
+  rescue_from ActiveRecord::RecordInvalid do
+    render plain: "Sorry, couldn't subscribe you to OurCity items."
   end
-  
-  before_filter :find_code, :find_user
 
   def create
-    @codes.each do |code|
-      @sms_user.send(@action, code)
+    unsubscribe! and return if Subscription::SMS_STOP_WORDS.any? { |t| sms_body.start_with?(t) }
+
+    sms_user = SmsUser.where(phone: Phony.normalize(params['From'])).first_or_create!
+    codes    = sms_body.split(' ')
+
+    codes.each { |code| sms_user.subscribe(code) }
+
+    if (count = sms_user.subscriptions.count) > 0
+      render plain: "You are now subscribed to #{count} OurCity #{'item'.pluralize(count)}. Thanks!"
+    else
+      render plain: "Find subscription items at #{root_url}. 'STOP' to stop all updates."
     end
-    render nothing: true, status: 201
   end
 
   protected
-  def render_unknown
-    render text: "'SUBSCRIBE <CODE>' to subscribe. 'UNSUBSCRIBE <CODE>' to unsubscribe. 'STOP' to stop all updates. Find subscription items at #{root_url}.", status: 202
-    false
+  def verify_sid
+    render nothing: true, status: 400 unless params['AccountSid'] == Rails.configuration.twilio_account_sid
   end
 
-  def find_user
-    scope = SmsUser.where(phone: params[:from])
-    if @action=='unsubscribe'
-      render_unknown and return false unless scope.any?
-    end
-    @sms_user = scope.first_or_create
+  def sms_body
+    @sms_body ||= params['Body'].downcase.strip
   end
 
-  def find_code
-    @codes  = params[:sms_body].downcase.split(' ')
-    @action = @codes.shift
-    raise 'foo' unless ['subscribe', 'unsubscribe'].include?(@action)
-    @codes.map(&:upcase!)
-    @action.downcase!
-  rescue => e
-    logger.warn(e)
-    render_unknown
+  def unsubscribe!
+    SmsUser.where(phone: Phony.normalize(params['From'])).destroy_all
+    render plain: "You will no longer receive updates from OurCity."
   end
 
 end

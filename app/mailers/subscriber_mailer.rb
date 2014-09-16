@@ -1,9 +1,9 @@
 class SubscriberMailer < ActionMailer::Base
   default from: "noreply@ourcity.com"
 
-  def agenda_update(notifiable, agenda_item, user)
+  def agenda_update(notifiable, agenda_items, user)
     @notifiable  = notifiable
-    @agenda_item = agenda_item
+    @agenda_items = agenda_items
     @user        = user
     mail(to: user.email, subject: '[OurCity] New Agenda Item Posted')
   end

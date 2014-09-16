@@ -143,3 +143,6 @@ Map.create!({
     }]
   }
 });
+
+
+User.create!(email: 'ben@thesubstars.com', first_name: 'Ben', last_name: 'O')

@@ -12,6 +12,7 @@ class AgendaItem < ActiveRecord::Base
   scope :timeline, -> { order('acted_on DESC') }
   scope :between, -> (start_time, end_time) { where('created_at BETWEEN ? and ?', start_time, end_time) }
   scope :past, -> { where('acted_on < ?', Time.now) }
+  scope :since, -> (start_time) { between(start_time, Time.now) }
   scope :upcoming, -> { where('acted_on >= ?', Time.now) }
 
   scope :for_user, -> (user) {

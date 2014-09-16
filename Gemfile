@@ -9,18 +9,22 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bower-rails'
 gem 'devise'
 gem 'faraday'
+gem "font-awesome-rails"
 gem 'friendly_id'
 gem 'geocoder'
 gem 'jquery-rails'
+gem 'nokogiri' # for premailer
 gem 'pg'
 gem 'phony_rails'
+gem 'premailer-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'tms_client'
+gem 'tms_client', git: 'git://github.com/govdelivery/tms_client.git', require: 'tms_client/mail/delivery_method'
+gem 'twilio-ruby'
 
 group :development do
   gem 'guard-livereload', require: false
-  gem 'guard-rspec',      require: false
+  gem 'guard-rspec', require: false
   gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
@@ -36,6 +40,7 @@ end
 
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails'

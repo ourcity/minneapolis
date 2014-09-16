@@ -29,5 +29,21 @@ module Minneapolis
 
     # we're in Minnesota, fools
     config.time_zone = 'America/Chicago'
+
+    # GovDelivery Transactional Messaging Service
+    config.tms_root  = ENV['TMS_ROOT']
+    config.tms_token = ENV['TMS_TOKEN']
+
+    config.twilio_account_sid = ENV['TWILIO_ACCOUNT_SID']
+    config.twilio_token       = ENV['TWILIO_TOKEN']
+    config.twilio_number      = ENV['TWILIO_NUMBER']
+
+    config.action_mailer.delivery_method          = :govdelivery_tms
+    config.action_mailer.govdelivery_tms_settings = {
+      auth_token: config.tms_token,
+      api_root: config.tms_root
+    }
+
+
   end
 end

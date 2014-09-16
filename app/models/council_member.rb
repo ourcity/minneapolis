@@ -10,14 +10,12 @@ class CouncilMember < ActiveRecord::Base
   friendly_id :slug_candidates, use: :slugged
   has_many :subscriptions, as: :subscribable
 
-  before_validation :generate_code, on: :create
-
   def full_name
     [first_name, last_name].join(' ')
   end
 
   def display_name
-    "City Council Representative  #{self.name} (Ward #{self.ward})"
+    "City Council Representative  #{self.full_name} (Ward #{self.ward})"
   end
 
   def homepage
@@ -39,6 +37,7 @@ class CouncilMember < ActiveRecord::Base
   end
 
   def generate_code
+    return if self.code.present?
     if self.ward
       self.code||="WARD_#{ward}"
     else

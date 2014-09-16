@@ -1,8 +1,22 @@
-<div class="subscription_box">
-  <%= form_tag(subscriptions_path, remote: true) do -%>
-      <h3>Sign up for <%= subscribable.class.name.titleize %> updates: </h3>
-      <%= email_field_tag(:email, '', placeholder: 'Enter e-mail address') %>
-      <%= hidden_field_tag(subscribable.class.name.foreign_key, subscribable.id) %>
-      <div><%= submit_tag 'Sign me up!' %></div>
-  <% end -%>
+<div class="panel panel-inverse">
+  <div class="panel-heading">
+    <div class="panel-heading-btn">
+      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+    </div>
+    <h4 class="panel-title">Get Email Updates for this <%= subscribable.class.name.titleize %> </h4>
+  </div>
+  <div class="panel-body">
+    <%= form_tag(subscriptions_path, remote: true) do -%>
+        <form class="navbar-form full-width hidden-xs">
+          <div class="form-group">
+            <%= email_field_tag(:email, '', placeholder: 'Enter e-mail address') %>
+            <%= hidden_field_tag(subscribable.class.name.foreign_key, subscribable.id) %>
+            <%= submit_tag 'Sign me up!' %>
+          </div>
+        </form>
+    <% end -%>
+  </div>
 </div>

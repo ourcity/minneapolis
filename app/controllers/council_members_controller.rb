@@ -73,6 +73,6 @@ class CouncilMembersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def council_member_params
-    params.require(:council_member).permit(:ward, :first_name, :last_name, :committee_member_id)
+    params.require(:council_member).permit(:ward, :first_name, :last_name, :committee_member_id, :code)
   end
 end
