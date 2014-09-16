@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20140916022504) do
     t.integer  "process_step_id"
     t.integer  "committee_id"
     t.integer  "council_member_id"
+    t.integer  "event_id"
   end
 
   add_index "agenda_items", ["committee_id"], name: "index_agenda_items_on_committee_id", using: :btree
   add_index "agenda_items", ["council_member_id"], name: "index_agenda_items_on_council_member_id", using: :btree
+  add_index "agenda_items", ["event_id"], name: "index_agenda_items_on_event_id", using: :btree
   add_index "agenda_items", ["process_step_id"], name: "index_agenda_items_on_process_step_id", using: :btree
 
   create_table "committee_members", force: true do |t|
