@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140916022504) do
   end
 
   create_table "conversations", force: true do |t|
+    t.integer  "conversable_id"
+    t.string   "conversable_type"
     t.string   "topic"
     t.string   "conversation_id"
     t.json     "properties"
