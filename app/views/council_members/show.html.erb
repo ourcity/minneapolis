@@ -27,6 +27,7 @@
 
   <hr>
   <!-- begin row -->
+  <h4>Committee Participation and Activities</h4>
   <div class="row">
     <div class="col-md-11">
       <div class="panel-group" id="accordion">
@@ -42,8 +43,9 @@
           </div>
           <div id="collapse<%= committee.id %>" class="panel-collapse collapse ">
             <div class="panel-body">
-              <h3>Recent Meetings</h3>
+              <h5>Recent Meetings</h5>
               <% committee.events.each do |event| %>
+              <%= event.date %>: <%= event.event_type %>
               <ul>
                 <% event.agenda_items.take(3).each do |agenda_items| %>
                   <li>agenda_item.properties["description"]</li>
