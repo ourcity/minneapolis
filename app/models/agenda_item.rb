@@ -7,7 +7,7 @@ class AgendaItem < ActiveRecord::Base
   belongs_to :council_member
   has_many :report_links
 
-  validates :committee, presence: true
+  #validates :committee, presence: true
 
   scope :timeline, -> { order('acted_on DESC') }
   scope :between, -> (start_time, end_time) { where('created_at BETWEEN ? and ?', start_time, end_time) }

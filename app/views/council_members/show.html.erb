@@ -46,7 +46,7 @@
               <% committee.events.each do |event| %>
               <ul>
                 <% event.agenda_items.take(3).each do |agenda_items| %>
-                  <li>agendar_item.description</li>
+                  <li>agenda_item.properties["description"]</li>
                 <% end %>
                 <%= link_to "Read More", event_path(event.id) %>
               </ul>

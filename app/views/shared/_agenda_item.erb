@@ -3,7 +3,7 @@
   <h4><%= agenda_item.committee.name %></h4>
   <strong><%= link_to(agenda_item.acted_on.in_time_zone.to_formatted_s, agenda_item.source_url) %></strong>
 
-  <p><%= agenda_item.description %></p>
+  <p><%= agenda_item.properties["description"] %></p>
   <% if agenda_item.report_links.any? %>
       <h5>Report Links</h5>
       <ul>
@@ -15,6 +15,6 @@
       </ul>
   <% end %>
 
-  <p><strong><%= agenda_item.action %></strong></p>
+  <p><strong><%= agenda_item.properties["action"] %></strong></p>
 
 </div>

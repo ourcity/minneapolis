@@ -80,13 +80,8 @@ class CsvSeeds
     agenda_items_file = Rails.root.join(dir, "agenda_items.csv")
 
     CSV.parse(File.read(agenda_items_file), headers: true) do |row|
-      agenda_item               = AgendaItem.where(id: row['id']).first_or_initialize
-      agenda_item.event_id      = row['event_id']
-      agenda_item.committee_id  = row['committee_id']
-      agenda_item.description   = row['description']
-      agenda_item.action_text   = row['action_text']
-      agenda_item.public_doc_url = row['public_doc_url']
-      agenda_item.issue_id      = row['issue_id']
+      agenda_item             = AgendaItem.where(id: row['id']).first_or_initialize
+      agenda_item.properties  = row.to_h.compact
       agenda_item.save!
 
       puts "Updated info for #{agenda_item.id}"
