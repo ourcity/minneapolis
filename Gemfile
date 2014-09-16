@@ -13,6 +13,7 @@ gem "font-awesome-rails"
 gem 'friendly_id'
 gem 'geocoder'
 gem 'jquery-rails'
+gem 'nokogiri' # for premailer
 gem 'pg'
 gem 'phony_rails'
 gem 'premailer-rails'

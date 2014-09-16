@@ -294,6 +294,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   libnotify
+  nokogiri
   pg
   phony_rails
   poltergeist
