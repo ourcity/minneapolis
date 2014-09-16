@@ -1,15 +1,39 @@
-<h1><%= @committee.name %> Committee</h1>
-
-<p>
-  <strong>Type:</strong>
-  <%= @committee.comm_type %>
-</p>
-
-<p>
-  <strong>More Info:</strong>
-  <%= link_to "Minneapolis City Council Committee Info Page", @committee.info_url %>
-</p>
-
+<h1 class="page-header">
+  <%= @committee.name %> Committee
+  <br />
+  <small></small>
+</h1>
+<div class="row">
+  <div class="col-md-6">
+		<p>
+		  <strong>Type:</strong>
+		  <%= @committee.comm_type %>
+		</p>
+		<p>
+		  <strong>Members:</strong>
+		  <ul>
+			  <% @committee.committee_members.each do |committee_member| %>
+			  	<li><%= link_to CouncilMember.find(committee_member.council_member_id).full_name, council_member_path(committee_member.council_member_id) %></li>
+			  <% end %>
+			</ul>
+		</p>
+		<p>
+		  <strong>More Info:</strong>
+		  <%= link_to "Minneapolis City Council Committee Info Page", @committee.info_url %>
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+		  <strong>Recent Meetings:</strong>
+		  <ul>
+			  <% @committee.events.each do |event| %>
+			  	<li><%= event.date %>: <%= link_to event.event_type, event_path(event.id) %></li>
+			  <% end %>
+			</ul>
+		</p>
+	</div>
+</div>
+<hr>
 <%= render partial: "shared/subscription_form", locals: {subscribable: @committee} %>
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |
