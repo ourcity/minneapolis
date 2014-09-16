@@ -1,6 +1,6 @@
 class SmsSubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before :verify_sid
+  before_filter :verify_sid
 
   rescue_from ActiveRecord::RecordInvalid do
     render plain: "Sorry, couldn't subscribe you to OurCity items."
