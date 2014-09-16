@@ -9,7 +9,7 @@
     <h5 class="panel-title">Get Email Updates for this <%= subscribable.class.name.titleize %> </h4>
   </div>
   <div class="panel-body">
-    <%= form_tag(subscriptions_path, remote: true) do -%>
+    <%= form_tag(subscriptions_path, remote: true, class: 'subscribe_form', id: 'subscribe_form') do -%>
         <form class="navbar-form full-width hidden-xs">
           <div class="form-group">
             <%= email_field_tag(:email, '', placeholder: 'Enter e-mail address') %>

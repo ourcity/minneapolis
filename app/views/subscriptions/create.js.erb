@@ -1,7 +1,0 @@
-<%- if @subscription.try(:invalid?) %>
-$('#subscription_box').html("<%= escape_javascript("<h3>Oh no, something went wrong!") %>")
-<%- elsif @user.invalid? %>
-$('#subscription_box').html("<%= escape_javascript(@user.errors.full_messages.join('<br>')) %>")
-<%- else %>
-$('#subscription_box').html('Success!')
-<%- end %>
