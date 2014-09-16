@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913170818) do
+ActiveRecord::Schema.define(version: 20140916022504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,14 @@ ActiveRecord::Schema.define(version: 20140913170818) do
     t.datetime "updated_at"
     t.string   "slug",       limit: 150
     t.string   "code",       limit: 20
+  end
+
+  create_table "conversations", force: true do |t|
+    t.string   "topic"
+    t.string   "conversation_id"
+    t.json     "properties"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "council_members", force: true do |t|
